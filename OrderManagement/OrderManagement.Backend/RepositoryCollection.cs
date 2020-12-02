@@ -23,7 +23,7 @@ namespace OrderManagement.Backend
             var options = new DbContextOptionsBuilder<OrderManagementDbContext>().UseSqlServer(connectionString);
             dbContext = new OrderManagementDbContext(options.Options);
 
-            CustomerRepository = new CustomerRepository();
+            CustomerRepository = new CustomerRepository(dbContext);
         }
     }
 }
