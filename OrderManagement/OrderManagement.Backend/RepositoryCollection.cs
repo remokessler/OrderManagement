@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using OrderManagement.Backend.DataModels;
 using OrderManagement.Backend.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OrderManagement.Backend
 {
@@ -11,19 +8,27 @@ namespace OrderManagement.Backend
         private static RepositoryCollection _instance { get;set; }
         public static RepositoryCollection Instance => _instance ??= new RepositoryCollection();
 
-        public ICustomerRepository CustomerRepository { get; private set; }
+        public IRepository<Customer> CustomerRepository { get; private set; }
+        public IRepository<Address> AddressRepository { get; private set; }
+        public IRepository<Order> OrderRepository { get; private set; }
+        public IRepository<OrderPosition> OrderPositionRepository { get; private set; }
+        public IRepository<Product> ProductRepository { get; private set; }
+        public IRepository<ProductGroup> ProductGroupRepository { get; private set; }
 
-        private OrderManagementDbContext dbContext { get; set; }
+        private OrderManagementDbContext _dbContext { get; set; }
 
         public RepositoryCollection()
         {
             // AKA: StartUp
-            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Database=OrderManagement;MultipleActiveResultSets=True;Trusted_Connection=True";
+            
+            _dbContext = new OrderManagementDbContextFactory().CreateDbContext(null);
 
-            var options = new DbContextOptionsBuilder<OrderManagementDbContext>().UseSqlServer(connectionString);
-            dbContext = new OrderManagementDbContext(options.Options);
-
-            CustomerRepository = new CustomerRepository(dbContext);
+            CustomerRepository = new CustomerRepository(_dbContext);
+            AddressRepository = new AddressRepository(_dbContext);
+            OrderRepository = new OrderRepository(_dbContext);
+            OrderPositionRepository = new OrderPositionRepository(_dbContext);
+            ProductRepository = new ProductRepository(_dbContext);
+            ProductGroupRepository = new ProductGroupRepository(_dbContext);
         }
     }
 }

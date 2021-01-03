@@ -19,5 +19,6 @@ namespace OrderManagement.Backend.DataModels
         public string Country { get; set; }
         [Required]
         public DateTimeOffset From { get; set; }
+        public IEnumerable<Customer> Customers { get; set; }
     }
 }
