@@ -1,0 +1,25 @@
+todo:
+REMO:
+Repos (Kunden, Artikelgruppen, Artikel, Aufträge)
+Datamodel (mit Datum)
+
+MARCO:
+UI
+
+Datalayer anbinden
+
+Artikelgruppen in TreeView
+Jahresvergleiche
+Arbeitsjournal
+DBmigration mit Testdaten
+Dokumentation (Setup)
+Nachvollziehbare Adressänderungen
+
+update speichern
+fehler
+laden / darstellung
+löschen
+
+1. Struktur repo (interfaces)
+2. DB
+3. 
