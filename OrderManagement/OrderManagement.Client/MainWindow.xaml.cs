@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace OrderManagement.Client
 {
@@ -74,32 +67,46 @@ namespace OrderManagement.Client
 
         private void CustomerIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ArticleGrpIco.Foreground = new  Colors.LightBlue;
+            ArticleGrpIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            ArticleIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            OrdersIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             CustomerIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
-            MessageBox.Show("test");
+
+            // TODO Connect to Backend for SELECT data
+            var context = new Backend.RepositoryCollection();
+            var nentry = new Customer();
+            var entries = context.CustomerRepository.Get();
+            foreach (var entry in entries)
+            {
+                MessageBox.Show("test");
+            }
         }
 
         private void ArticleGrpIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            ArticleIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            OrdersIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             ArticleGrpIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
         }
 
         private void ArticleIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            ArticleGrpIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            OrdersIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             ArticleIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
         }
 
         private void OrdersIco_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
+            ArticleGrpIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            ArticleIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             OrdersIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
-        }
-
-        private void ClickEvent(object sender, MouseButtonEventArgs e)
-        {
-            sender.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.Blue, 90)
         }
     }
 }

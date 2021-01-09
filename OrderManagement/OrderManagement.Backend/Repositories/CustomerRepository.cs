@@ -43,5 +43,11 @@ namespace OrderManagement.Backend.Repositories
             DbContext.SaveChanges();
             return oldCustomer;
         }
+
+        public Customer Add(Customer newObject)
+        {
+            var newCustomer = DbContext.Customers.First(c => c.Id == newObject.Id);
+            return newCustomer;
+        }
     }
 }
