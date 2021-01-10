@@ -10,6 +10,21 @@ namespace OrderManagement.Backend.Repositories
     {
         public AddressRepository(OrderManagementDbContext dbContext) : base(dbContext) { }
 
+        public Address Add(Address obj)
+        {
+            var toAdd = new Address()
+            {
+                City = obj.City,
+                Country = obj.Country,
+                From = obj.From,
+                PostCode = obj.PostCode,
+                Street = obj.Street
+            };
+            DbContext.Addresses.Add(toAdd);
+            DbContext.SaveChanges();
+            return toAdd;
+        }
+
         public void Delete(int id)
         {
             var address = DbContext.Addresses.First(c => c.Id == id);

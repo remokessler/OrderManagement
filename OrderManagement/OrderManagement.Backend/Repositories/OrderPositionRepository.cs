@@ -11,6 +11,19 @@ namespace OrderManagement.Backend.Repositories
     {
         public OrderPositionRepository(OrderManagementDbContext dbContext) : base(dbContext) { }
 
+        public OrderPosition Add(OrderPosition obj)
+        {
+            var toAdd = new OrderPosition()
+            {
+                Count = obj.Count,
+                OrderId = obj.OrderId,
+                Position = obj.Position,
+                ProductId = obj.ProductId
+            };
+            DbContext.OrderPositions.Add(toAdd);
+            DbContext.SaveChanges();
+            return toAdd;
+        }
         public void Delete(int id)
         {
             var orderPosition = DbContext.OrderPositions.First(o => o.Id == id);

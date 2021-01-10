@@ -19,7 +19,7 @@ namespace OrderManagement.Backend
 
         public RepositoryCollection()
         {
-            // AKA: StartUp
+            // AKA: Bascily StartUp
             
             _dbContext = new OrderManagementDbContextFactory().CreateDbContext(null);
 

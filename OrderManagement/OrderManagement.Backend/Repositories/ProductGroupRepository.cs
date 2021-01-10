@@ -10,6 +10,18 @@ namespace OrderManagement.Backend.Repositories
     {
         public ProductGroupRepository(OrderManagementDbContext dbContext) : base(dbContext) { }
 
+        public ProductGroup Add(ProductGroup obj)
+        {
+            var toAdd = new ProductGroup()
+            {
+                Name = obj.Name,
+                ParentId = obj.ParentId
+            };
+            DbContext.ProductGroups.Add(toAdd);
+            DbContext.SaveChanges();
+            return toAdd;
+        }
+
         public void Delete(int id)
         {
             var productGroup = DbContext.ProductGroups.First(p => p.Id == id);
