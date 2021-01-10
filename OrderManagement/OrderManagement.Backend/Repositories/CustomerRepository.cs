@@ -10,6 +10,19 @@ namespace OrderManagement.Backend.Repositories
     {
         public CustomerRepository(OrderManagementDbContext dbContext) : base(dbContext) { }
 
+        public Customer Add(Customer obj)
+        {
+            var toAdd = new Customer()
+            {
+                AddressId = obj.AddressId,
+                Firstname = obj.Firstname,
+                Name = obj.Name
+            };
+            DbContext.Customers.Add(toAdd);
+            DbContext.SaveChanges();
+            return toAdd;
+        }
+
         public void Delete(int id)
         {
             var customer = DbContext.Customers.First(c => c.Id == id);

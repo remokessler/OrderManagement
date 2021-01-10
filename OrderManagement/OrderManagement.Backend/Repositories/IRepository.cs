@@ -7,7 +7,7 @@ namespace OrderManagement.Backend.Repositories
 {
     public interface IRepository<T>
     {
-
+        T Add(T obj);
         IEnumerable<T> Get();
         IEnumerable<T> Get(Func<T, bool> where);
         T Get(int id);
