@@ -23,6 +23,7 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            <Button Grid.Row="0" Name="AddAddress" Margin="0,0,0,2" Content="Add Address" Width="100" Click="AddAddress_Click"></Button>
             <HeaderedContentControl Grid.Row="0" Name="HeaderGrid" FontSize="20" Margin="0,0,0,16" Foreground="LightSkyBlue"></HeaderedContentControl>
             <DataGrid Grid.Row="1" Name="GenericGrid" ItemsSource="{Binding}" AutoGenerateColumns="True" VerticalAlignment="Stretch"/>
             <!--<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">

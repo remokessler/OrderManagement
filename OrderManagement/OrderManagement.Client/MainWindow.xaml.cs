@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -18,19 +19,20 @@ namespace OrderManagement.Client
             InitializeComponent();
         }
 
-        private void CustomerIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void ResetIcoColor()
         {
+            CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             ArticleGrpIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             ArticleIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             OrdersIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+        }
+
+        private void CustomerIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ResetIcoColor();
             CustomerIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
             ObservableCollection<Backend.DataModels.Customer> GridList = new ObservableCollection<Backend.DataModels.Customer>();
-            //var marco = new Backend.DataModels.Customer();
-            //marco.Id = 1;
-            //marco.Firstname = "Marco";
-            //marco.Name = "Ebneter";
-            //context.CustomerRepository.Add(marco);
             var entries = context.CustomerRepository.Get();
             foreach (var entry in entries)
             {
@@ -41,9 +43,7 @@ namespace OrderManagement.Client
 
         private void ArticleGrpIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
-            ArticleIco.Foreground = new SolidColorBrush(Colors.LightBlue);
-            OrdersIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            ResetIcoColor();
             ArticleGrpIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
             ObservableCollection<Backend.DataModels.ProductGroup> GridList = new ObservableCollection<Backend.DataModels.ProductGroup>();
@@ -57,9 +57,7 @@ namespace OrderManagement.Client
 
         private void ArticleIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ArticleGrpIco.Foreground = new SolidColorBrush(Colors.LightBlue);
-            CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
-            OrdersIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            ResetIcoColor();
             ArticleIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
             ObservableCollection<Backend.DataModels.Product> GridList = new ObservableCollection<Backend.DataModels.Product>();
@@ -73,9 +71,7 @@ namespace OrderManagement.Client
 
         private void OrdersIco_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
-            ArticleGrpIco.Foreground = new SolidColorBrush(Colors.LightBlue);
-            ArticleIco.Foreground = new SolidColorBrush(Colors.LightBlue);
-            CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            ResetIcoColor();
             OrdersIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
             ObservableCollection<Backend.DataModels.Order> GridList = new ObservableCollection<Backend.DataModels.Order>();
@@ -85,6 +81,26 @@ namespace OrderManagement.Client
                 GridList.Add(entry);
             }
             GenericGrid.DataContext = GridList;
+        }
+
+        private void AddAddress_Click(object sender, RoutedEventArgs e)
+        {
+            //var marco = new Backend.DataModels.Customer();
+            //marco.Id = 1;
+            //marco.Firstname = "Marco";
+            //marco.Name = "Ebneter";
+            //context.CustomerRepository.Add(marco);
+
+            //var testaddress = new Backend.DataModels.Address();
+            //testaddress.Id = 1;
+            //testaddress.Street = "teststrasse 15";
+            //testaddress.Country = "ch";
+            //testaddress.City = "appenzell";
+            //testaddress.From = DateTime.Now;
+            //testaddress.PostCode = 9050;
+            //context.AddressRepository.Add(testaddress);
+            AddAddress subwindow = new AddAddress();
+            subwindow.Show();
         }
     }
 }
