@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,7 @@ namespace OrderManagement.Client
         private void ResetIcoColor()
         {
             CustomerIco.Foreground = new SolidColorBrush(Colors.LightBlue);
+            AddrIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             ArticleGrpIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             ArticleIco.Foreground = new SolidColorBrush(Colors.LightBlue);
             OrdersIco.Foreground = new SolidColorBrush(Colors.LightBlue);
@@ -83,24 +85,31 @@ namespace OrderManagement.Client
             GenericGrid.DataContext = GridList;
         }
 
-        private void AddAddress_Click(object sender, RoutedEventArgs e)
+        private void AddrIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //var marco = new Backend.DataModels.Customer();
-            //marco.Id = 1;
-            //marco.Firstname = "Marco";
-            //marco.Name = "Ebneter";
-            //context.CustomerRepository.Add(marco);
+            ResetIcoColor();
+            AddrIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
 
-            //var testaddress = new Backend.DataModels.Address();
-            //testaddress.Id = 1;
-            //testaddress.Street = "teststrasse 15";
-            //testaddress.Country = "ch";
-            //testaddress.City = "appenzell";
-            //testaddress.From = DateTime.Now;
-            //testaddress.PostCode = 9050;
-            //context.AddressRepository.Add(testaddress);
-            AddAddress subwindow = new AddAddress();
-            subwindow.Show();
+            ObservableCollection<Backend.DataModels.Address> GridList = new ObservableCollection<Backend.DataModels.Address>();
+            var entries = context.AddressRepository.Get();
+            foreach (var entry in entries)
+            {
+                GridList.Add(entry);
+            }
+            GenericGrid.DataContext = GridList;
+        }
+
+        private void AddrIco_ChangeEntry(object sender, SelectedCellsChangedEventArgs e)
+        {
+            ObservableCollection<Backend.DataModels.Address> GridList = new ObservableCollection<Backend.DataModels.Address>();
+            var addr = new Backend.DataModels.Address();
+            addr.Id = (int)GenericGrid.SelectedValue;
+            MessageBox.Show(Convert.ToString(addr.Id));
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
