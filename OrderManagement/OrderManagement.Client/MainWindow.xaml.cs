@@ -104,6 +104,7 @@ namespace OrderManagement.Client
             ObservableCollection<Backend.DataModels.Address> GridList = new ObservableCollection<Backend.DataModels.Address>();
             var addr = new Backend.DataModels.Address();
             addr.Id = (int)GenericGrid.SelectedValue;
+            context.AddressRepository.Add(addr);
             MessageBox.Show(Convert.ToString(addr.Id));
         }
 
