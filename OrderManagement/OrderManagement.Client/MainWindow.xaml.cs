@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.EntityFrameworkCore;
+using OrderManagement.Backend.DataModels;
 
 namespace OrderManagement.Client
 {
@@ -32,7 +35,7 @@ namespace OrderManagement.Client
         private void CustomerIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             ResetIcoColor();
-            CustomerIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
+            CustomerIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.Blue, 90);
 
             ObservableCollection<Backend.DataModels.Customer> GridList = new ObservableCollection<Backend.DataModels.Customer>();
             var entries = context.CustomerRepository.Get();
@@ -46,7 +49,7 @@ namespace OrderManagement.Client
         private void ArticleGrpIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             ResetIcoColor();
-            ArticleGrpIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
+            ArticleGrpIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.Blue, 90);
 
             ObservableCollection<Backend.DataModels.ProductGroup> GridList = new ObservableCollection<Backend.DataModels.ProductGroup>();
             var entries = context.ProductGroupRepository.Get();
@@ -60,7 +63,7 @@ namespace OrderManagement.Client
         private void ArticleIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             ResetIcoColor();
-            ArticleIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
+            ArticleIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.Blue, 90);
 
             ObservableCollection<Backend.DataModels.Product> GridList = new ObservableCollection<Backend.DataModels.Product>();
             var entries = context.ProductRepository.Get();
@@ -74,7 +77,7 @@ namespace OrderManagement.Client
         private void OrdersIco_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
             ResetIcoColor();
-            OrdersIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
+            OrdersIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.Blue, 90);
 
             ObservableCollection<Backend.DataModels.Order> GridList = new ObservableCollection<Backend.DataModels.Order>();
             var entries = context.OrderRepository.Get();
@@ -88,7 +91,7 @@ namespace OrderManagement.Client
         private void AddrIco_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             ResetIcoColor();
-            AddrIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.DarkBlue, 90);
+            AddrIco.Foreground = new LinearGradientBrush(Colors.LightBlue, Colors.Blue, 90);
 
             ObservableCollection<Backend.DataModels.Address> GridList = new ObservableCollection<Backend.DataModels.Address>();
             var entries = context.AddressRepository.Get();
@@ -99,18 +102,28 @@ namespace OrderManagement.Client
             GenericGrid.DataContext = GridList;
         }
 
-        private void AddrIco_ChangeEntry(object sender, SelectedCellsChangedEventArgs e)
+        private void Update_Entry(object sender, SelectedCellsChangedEventArgs e)
         {
             ObservableCollection<Backend.DataModels.Address> GridList = new ObservableCollection<Backend.DataModels.Address>();
-            var addr = new Backend.DataModels.Address();
-            addr.Id = (int)GenericGrid.SelectedValue;
-            context.AddressRepository.Add(addr);
-            MessageBox.Show(Convert.ToString(addr.Id));
+
+            var idx = GenericGrid.SelectedIndex;
+            GridList += GenericGrid.DataContextChanged(idx);
+
+            Address[] addr;
+            addr = new Address[1];
+            GridList.CopyTo(addr, idx);
+            //context.AddressRepository.Add(addr);
+            MessageBox.Show(Convert.ToString(addr));
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void Create_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

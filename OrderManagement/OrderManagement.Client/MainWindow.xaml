@@ -24,12 +24,12 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Name="Save" Margin="0,0,0,2" Content="Save" Width="100" Click="Save_Click"></Button>
+            <Button Grid.Row="0" Name="Save" Margin="-250,0,0,2" Content="Delete" Width="100" Click="Delete_Click"></Button>
+            <Button Grid.Row="0" Name="Add" Margin="250,0,0,2" Content="Create" Width="100" Click="Create_Click"></Button>
             <HeaderedContentControl Grid.Row="0" Name="HeaderGrid" FontSize="20" Margin="0,0,0,16" Foreground="LightSkyBlue"></HeaderedContentControl>
-            <DataGrid Grid.Row="1" Name="GenericGrid" ItemsSource="{Binding}" AutoGenerateColumns="True" VerticalAlignment="Stretch" SelectedCellsChanged="AddrIco_ChangeEntry"/>
+            <DataGrid Grid.Row="1" Name="GenericGrid" ItemsSource="{Binding}" AutoGenerateColumns="True" VerticalAlignment="Stretch" SelectedCellsChanged="Update_Entry"/>
             <!--<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
                 <Grid>
-                
                 </Grid>
             </ScrollViewer>-->
         </Grid>
