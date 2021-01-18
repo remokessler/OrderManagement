@@ -17,11 +17,13 @@ namespace OrderManagement.Backend
 
         private OrderManagementDbContext _dbContext { get; set; }
 
-        public RepositoryCollection()
+        public RepositoryCollection(OrderManagementDbContext dbContext = null)
         {
             // AKA: Bascily StartUp
             
             _dbContext = new OrderManagementDbContextFactory().CreateDbContext(null);
+            if (dbContext != null)
+                _dbContext = dbContext;
 
             CustomerRepository = new CustomerRepository(_dbContext);
             AddressRepository = new AddressRepository(_dbContext);
