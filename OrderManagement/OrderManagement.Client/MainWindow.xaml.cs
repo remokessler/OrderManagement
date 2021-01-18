@@ -102,18 +102,80 @@ namespace OrderManagement.Client
             GenericGrid.DataContext = GridList;
         }
 
-        private void Update_Entry(object sender, SelectedCellsChangedEventArgs e)
+        private void Update_Entry(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
-            ObservableCollection<Backend.DataModels.Address> GridList = new ObservableCollection<Backend.DataModels.Address>();
-
-            var idx = GenericGrid.SelectedIndex;
-            GridList += GenericGrid.DataContextChanged(idx);
-
-            Address[] addr;
-            addr = new Address[1];
-            GridList.CopyTo(addr, idx);
-            //context.AddressRepository.Add(addr);
-            MessageBox.Show(Convert.ToString(addr));
+            try
+            {
+                var gridList = (ObservableCollection<Address>)GenericGrid.DataContext;
+                foreach (var entry in gridList)
+                {
+                    if (entry.Id != 0)
+                    {
+                        context.AddressRepository.Update(entry);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    var gridList = (ObservableCollection<Customer>) GenericGrid.DataContext;
+                    foreach (var entry in gridList)
+                    {
+                        if (entry.Id != 0)
+                        {
+                            context.CustomerRepository.Update(entry);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        var gridList = (ObservableCollection<Order>) GenericGrid.DataContext;
+                        foreach (var entry in gridList)
+                        {
+                            if (entry.Id != 0)
+                            {
+                                context.OrderRepository.Update(entry);
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        try
+                        {
+                            var gridList = (ObservableCollection<Product>) GenericGrid.DataContext;
+                            foreach (var entry in gridList)
+                            {
+                                if (entry.Id != 0)
+                                {
+                                    context.ProductRepository.Update(entry);
+                                }
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            try
+                            {
+                                var gridList = (ObservableCollection<ProductGroup>) GenericGrid.DataContext;
+                                foreach (var entry in gridList)
+                                {
+                                    if (entry.Id != 0)
+                                    {
+                                        context.ProductGroupRepository.Update(entry);
+                                    }
+                                }
+                            }
+                            catch (Exception exception2)
+                            {
+                                Console.WriteLine(exception2);
+                                throw;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
