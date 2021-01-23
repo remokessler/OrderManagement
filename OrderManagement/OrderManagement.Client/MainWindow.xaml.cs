@@ -180,7 +180,11 @@ namespace OrderManagement.Client
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEntry addWindow = new AddEntry();
+            addWindow.Show();
+            var test = (ObservableCollection<DataGridColumn>) GenericGrid.Columns;
+            MessageBox.Show(test[1].HeaderStringFormat);
+            //if ()
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
