@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.EntityFrameworkCore;
@@ -182,9 +185,59 @@ namespace OrderManagement.Client
         {
             AddEntry addWindow = new AddEntry();
             addWindow.Show();
-            var test = (ObservableCollection<DataGridColumn>) GenericGrid.Columns;
-            MessageBox.Show(test[1].HeaderStringFormat);
-            //if ()
+            var table = GenericGrid.Columns;
+
+            try
+            {
+                addWindow.one.Content = (string)table[1].Header;
+                addWindow.two.Content = (string)table[2].Header;
+                addWindow.three.Content = (string)table[3].Header;
+                addWindow.four.Content = (string)table[4].Header;
+                addWindow.five.Content = (string)table[5].Header;
+            }
+            catch (Exception exception)
+            {
+                addWindow.one.Content = (string)table[1].Header;
+                addWindow.two.Content = (string)table[2].Header;
+                addWindow.three.Content = (string)table[3].Header;
+                addWindow.four.Content = (string)table[4].Header;
+            }
+
+            if ((string)table[1].Header == "Street")
+            {
+                addWindow.TxtFive.Text = DateTimeOffset.Now.ToString();
+            }
+            else if ((string) table[2].Header == "Firstname")
+            {
+                ObservableCollection<Address> list = new ObservableCollection<Address>();
+                var entries = context.AddressRepository.Get();
+                foreach (var entry in entries)
+                {
+                    list.Add(entry);
+                }
+                addWindow.StkFour.Children.Remove(addWindow.TxtFour);
+                var box = new ComboBox
+                {
+                    Name = "combo",
+                    FontSize = 33,
+                    ItemsSource = {Binding list}
+                };
+                addWindow.StkFour.Children.Add(box);
+                addWindow.TxtThree.IsEnabled = false;
+                addWindow.TxtThree.Background = new SolidColorBrush(Colors.Gray);
+            }
+            else if ((string) table[2].Header == "Price")
+            {
+
+            }
+            else if ((string)table[1].Header == "Date")
+            {
+
+            }
+            else if ((string) table[5].Header == "Parent")
+            {
+
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
