@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +16,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderManagement.Backend\OrderManagement.Backend.csproj" />
   </ItemGroup>
 
 </Project>

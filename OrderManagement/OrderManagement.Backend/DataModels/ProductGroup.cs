@@ -6,7 +6,7 @@ using System.Text;
 
 namespace OrderManagement.Backend.DataModels
 {
-    public class ProductGroup
+    public class ProductGroup : IHasId
     {
         [Key]
         public int Id { get; set; }
@@ -17,5 +17,7 @@ namespace OrderManagement.Backend.DataModels
         public IEnumerable<Product> Products { get; set; }
         public IEnumerable<ProductGroup> Children { get; set; }
         public ProductGroup Parent { get; set; }
+
+        public override string ToString() => $"{Id}; {Name};";
     }
 }

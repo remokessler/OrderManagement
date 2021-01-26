@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrderManagement.Backend.DataModels
 {
-    public class Customer
+    public class Customer : IHasId
     {
         [Key]
         public int Id { get; set; }
@@ -16,5 +16,7 @@ namespace OrderManagement.Backend.DataModels
         public int AddressId { get; set; }
         public Address Address { get; set; }
         public IEnumerable<Order> Orders { get; set; }
+
+        public override string ToString() => $"{Firstname} {Name}";
     }
 }

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace OrderManagement.Backend.DataModels
 {
-    public class Address
+    public class Address : IHasId
     {
         [Key]
         public int Id { get; set; }
@@ -20,5 +19,7 @@ namespace OrderManagement.Backend.DataModels
         [Required]
         public DateTimeOffset From { get; set; }
         public IEnumerable<Customer> Customers { get; set; }
+
+        public override string ToString() =>  $"{Street}, {PostCode} {City}";
     }
 }
