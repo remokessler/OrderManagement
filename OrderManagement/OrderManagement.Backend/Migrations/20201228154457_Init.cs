@@ -163,6 +163,16 @@ namespace OrderManagement.Backend.Migrations
                 name: "IX_Products_ParentId",
                 table: "Products",
                 column: "ParentId");
+
+            migrationBuilder.Sql($@"
+                ALTER TABLE dbo.Addresses
+                ADD
+                    valid_from datetime2 GENERATED ALWAYS AS ROW START DEFAULT SYSUTCDATETIME() NOT NULL,
+                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59' ) NOT NULL,
+                    PERIOD FOR SYSTEM_TIME (valid_from, valid_until)
+                ALTER TABLE dbo.Addresses
+                    SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.Addresses));"
+            );
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

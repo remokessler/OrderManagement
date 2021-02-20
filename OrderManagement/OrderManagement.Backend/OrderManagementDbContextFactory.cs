@@ -7,7 +7,7 @@ namespace OrderManagement.Backend
     {
         public OrderManagementDbContext CreateDbContext(string[] args)
         {
-            var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=OrderManagement;MultipleActiveResultSets=True;Trusted_Connection=True";
+            var connectionString = "Server=(local);Database=OrderManagement;MultipleActiveResultSets=True;Trusted_Connection=True";
 
             var options = new DbContextOptionsBuilder<OrderManagementDbContext>().UseSqlServer(connectionString);
 
