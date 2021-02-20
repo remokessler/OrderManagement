@@ -8,7 +8,7 @@ namespace OrderManagement.Backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Adresses",
+                name: "Addresses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -21,7 +21,7 @@ namespace OrderManagement.Backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Adresses", x => x.Id);
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,15 +52,15 @@ namespace OrderManagement.Backend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AdressId = table.Column<int>(type: "int", nullable: false)
+                    AddressId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Customers_Adresses_AdressId",
-                        column: x => x.AdressId,
-                        principalTable: "Adresses",
+                        name: "FK_Customers_Addresses_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Addresses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -135,9 +135,9 @@ namespace OrderManagement.Backend.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Customers_AdressId",
+                name: "IX_Customers_AddressId",
                 table: "Customers",
-                column: "AdressId");
+                column: "AddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderPositions_OrderId",
@@ -183,7 +183,7 @@ namespace OrderManagement.Backend.Migrations
                 name: "ProductGroups");
 
             migrationBuilder.DropTable(
-                name: "Adresses");
+                name: "Addresses");
         }
     }
 }

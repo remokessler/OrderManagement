@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace OrderManagement.Backend.DataModels
 {
-    public class Order
+    public class Order : IHasId
     {
         [Key]
         public int Id { get; set; }
@@ -16,5 +15,7 @@ namespace OrderManagement.Backend.DataModels
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
         public IEnumerable<OrderPosition> Positions { get; set; }
+
+        public override string ToString() => $"{Id}; {Customer.Firstname} {Customer.Name}; {Date}";
     }
 }

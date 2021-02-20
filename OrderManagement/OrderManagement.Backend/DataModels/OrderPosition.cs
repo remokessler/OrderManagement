@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace OrderManagement.Backend.DataModels
 {
-    public class OrderPosition
+    public class OrderPosition : IHasId
     {
         [Key]
         public int Id { get; set; }
@@ -19,5 +16,7 @@ namespace OrderManagement.Backend.DataModels
         [ForeignKey(nameof(Order))]
         public int OrderId { get; set; }
         public Order Order { get; set; }
+
+        public override string ToString() => $"{OrderId}; {Position}; {Count} x {Product.Name}";
     }
 }
