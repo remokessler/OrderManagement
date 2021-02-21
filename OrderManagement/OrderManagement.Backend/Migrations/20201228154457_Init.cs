@@ -171,7 +171,7 @@ namespace OrderManagement.Backend.Migrations
                     valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59' ) NOT NULL,
                     PERIOD FOR SYSTEM_TIME (valid_from, valid_until)
                 ALTER TABLE dbo.Addresses
-                    SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.Addresses));"
+                    SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.dw_addresses_dmsnHistory));"
             );
         }
 
