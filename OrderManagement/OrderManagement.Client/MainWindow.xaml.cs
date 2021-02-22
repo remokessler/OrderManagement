@@ -96,7 +96,7 @@ namespace OrderManagement.Client
                     break;
                 case "ProductGroup":
                     // Validate product group here.
-                    e.Row.Item = UpdateOrInsert<Product>(e.Row.Item);
+                    e.Row.Item = UpdateOrInsert<ProductGroup>(e.Row.Item);
                     break;
             }
         }
