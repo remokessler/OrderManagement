@@ -16,8 +16,6 @@ namespace OrderManagement.Backend.DataModels
         public int PostCode { get; set; }
         [Required]
         public string Country { get; set; }
-        [Required]
-        public DateTimeOffset From { get; set; }
         public IEnumerable<Customer> Customers { get; set; }
 
         public override string ToString() =>  $"{Street}, {PostCode} {City}";
