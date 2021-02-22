@@ -82,7 +82,22 @@ namespace OrderManagement.Client
                     // Validate customer here.
                     e.Row.Item = UpdateOrInsert<Customer>(e.Row.Item);
                     break;
-                // Add here for other saves
+                case "Order":
+                    // Validate order here.
+                    e.Row.Item = UpdateOrInsert<Order>(e.Row.Item);
+                    break;
+                case "OrderPosition":
+                    // Validate order position here.
+                    e.Row.Item = UpdateOrInsert<OrderPosition>(e.Row.Item);
+                    break;
+                case "Product":
+                    // Validate product here.
+                    e.Row.Item = UpdateOrInsert<Product>(e.Row.Item);
+                    break;
+                case "ProductGroup":
+                    // Validate product group here.
+                    e.Row.Item = UpdateOrInsert<Product>(e.Row.Item);
+                    break;
             }
         }
 
