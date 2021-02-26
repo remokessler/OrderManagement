@@ -16,6 +16,7 @@ namespace OrderManagement.Backend.Repositories
             {
                 City = obj.City,
                 Country = obj.Country,
+                From = obj.From,
                 PostCode = obj.PostCode,
                 Street = obj.Street
             };
@@ -49,6 +50,7 @@ namespace OrderManagement.Backend.Repositories
         public Address Update(Address newObject)
         {
             var oldAddress = DbContext.Addresses.First(a => a.Id == newObject.Id);
+            oldAddress.From = newObject.From;
             oldAddress.Country = newObject.Country;
             oldAddress.City = newObject.City;
             oldAddress.Street = newObject.Street;

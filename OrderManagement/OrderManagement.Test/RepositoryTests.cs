@@ -25,6 +25,7 @@ namespace OrderManagement.Test
                 {
                     City = "Appizell",
                     Country = "Ebefalls Appizell",
+                    From = DateTimeOffset.Now,
                     PostCode = 1231,
                     Street = "Strössli zur Berghütte hindire"
                 }
@@ -45,7 +46,7 @@ namespace OrderManagement.Test
 
             // löschä
             _repositoryCollection.CustomerRepository.Delete(customer.Id);
-
+            
         }
     }
 }
