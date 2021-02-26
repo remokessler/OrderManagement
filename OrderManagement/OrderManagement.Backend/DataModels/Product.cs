@@ -15,7 +15,7 @@ namespace OrderManagement.Backend.DataModels
         [Required]
         public decimal Price { get; set; }
         [ForeignKey(nameof(Parent))]
-        public int? ParentId { get; set; }
+        public int ParentId { get; set; }
         public IEnumerable<OrderPosition> OrderPositions { get; set; }
         public ProductGroup Parent { get; set; }
 
