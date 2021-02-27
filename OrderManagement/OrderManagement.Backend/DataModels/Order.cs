@@ -16,6 +16,6 @@ namespace OrderManagement.Backend.DataModels
         public Customer Customer { get; set; }
         public IEnumerable<OrderPosition> Positions { get; set; }
 
-        public override string ToString() => $"{Id}; {Customer.Firstname} {Customer.Name}; {Date}";
+        public override string ToString() => $"{Id}; {Customer?.Firstname} {Customer?.Name}; {Date}";
     }
 }

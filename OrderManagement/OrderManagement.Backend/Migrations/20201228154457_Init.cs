@@ -16,8 +16,7 @@ namespace OrderManagement.Backend.Migrations
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostCode = table.Column<int>(type: "int", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    From = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
