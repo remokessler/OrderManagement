@@ -86,7 +86,25 @@ namespace OrderManagement.Backend.Migrations
                     { 4, "Kuechenartikel", 1 },
                     { 2, "Milch Produkte", 1 },
                     { 3, "Fruechte / Gemuese", 1 },
-                    { 5, "Fleisch", 1 }
+                    { 5, "Fleisch", 1 },
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductGroups",
+                columns: new[] { "Id", "Name", "ParentId" },
+                values: new object[,]
+                {
+                    { 6, "Käses", 2 },
+                    { 7, "Milchschnitte", 2 },
+                    { 8, "Bratwurst", 5 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductGroups",
+                columns: new[] { "Id", "Name", "ParentId" },
+                values: new object[,]
+                {
+                    { 9, "Olma-Bratwurst mit Senf", 8 }
                 });
 
             migrationBuilder.InsertData(

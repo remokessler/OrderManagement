@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace OrderManagement.Client
 {
@@ -43,10 +44,22 @@ namespace OrderManagement.Client
                 SetActivePage<Order>();
             if (Header.Content.ToString() == "OrderPosition")
                 SetActivePage<OrderPosition>();
+            if (Header.Content.ToString() == "ProductTree")
+                SetTreePageActive();
+        }
+
+        private void SetTreePageActive()
+        {
+            GenericGrid.Visibility = Visibility.Hidden;
+            GenericTree.Visibility = Visibility.Visible;
+            _page = new ActivePage<ProductGroup>(RepositoryCollection.Instance.ProductTreeRepository, true);
+            GenericTree.Items.Add(RepositoryCollection.Instance.ProductTreeRepository.Get(1));
         }
 
         private void SetActivePage<T>() where T : IHasId
         {
+            GenericGrid.Visibility = Visibility.Visible;
+            GenericTree.Visibility = Visibility.Hidden;
             _page = GetActivePage(typeof(T));
             GenericGrid.DataContext = GetActivePage<T>().ObservableCollection;
         }

@@ -18,5 +18,10 @@ namespace OrderManagement.Client.Models
             ObservableCollection = new ObservableCollection<T>();
             Repository.Get()?.ToList()?.ForEach(ObservableCollection.Add);
         }
+        public ActivePage(IRepository<T> repository, bool isTree)
+        {
+            Repository = repository;
+            ObservableCollection = new ObservableCollection<T>();
+        }
     }
 }

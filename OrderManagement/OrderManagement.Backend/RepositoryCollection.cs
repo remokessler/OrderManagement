@@ -14,6 +14,7 @@ namespace OrderManagement.Backend
         public IRepository<OrderPosition> OrderPositionRepository { get; private set; }
         public IRepository<Product> ProductRepository { get; private set; }
         public IRepository<ProductGroup> ProductGroupRepository { get; private set; }
+        public IRepository<ProductGroup> ProductTreeRepository { get; private set; }
 
         private OrderManagementDbContext _dbContext { get; set; }
 
@@ -31,6 +32,7 @@ namespace OrderManagement.Backend
             OrderPositionRepository = new OrderPositionRepository(_dbContext);
             ProductRepository = new ProductRepository(_dbContext);
             ProductGroupRepository = new ProductGroupRepository(_dbContext);
+            ProductTreeRepository = new ProductTreeRepository(_dbContext);
         }
     }
 }

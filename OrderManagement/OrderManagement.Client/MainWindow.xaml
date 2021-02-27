@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="clr-namespace:Meziantou.WpfFontAwesome;assembly=Meziantou.WpfFontAwesome"
         mc:Ignorable="d"
+        xmlns:local="clr-namespace:OrderManagement.Backend.DataModels;assembly=OrderManagement.Backend"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#444444">
         <Grid.ColumnDefinitions>
@@ -18,6 +19,7 @@
             <fa:FontAwesomeIcon Name="OrderPosition" Margin="0, 8" VerticalAlignment="Top" SolidIcon="ListUl" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
             <fa:FontAwesomeIcon Name="Customer" Margin="0, 8" VerticalAlignment="Top" SolidIcon="User" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
             <fa:FontAwesomeIcon Name="Address" Margin="0, 8" VerticalAlignment="Top" SolidIcon="AddressCard" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon Name="ProductTree" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Tree" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
         </StackPanel>
         <Grid Grid.Column="1" Margin="16">
             <Grid.RowDefinitions>
@@ -29,6 +31,18 @@
                     Title
             </HeaderedContentControl>
             <DataGrid Grid.Row="1" Name="GenericGrid" ItemsSource="{Binding}" AutoGenerateColumns="True" VerticalAlignment="Stretch" RowEditEnding="RowEdited" AutoGeneratingColumn="GenericGrid_AutoGeneratingColumn"/>
+            <TreeView Grid.Row="1" Name="GenericTree" ItemsSource="{Binding}" >
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="True" />
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type local:ProductGroup}" ItemsSource="{Binding Path=Children}">
+                        <TextBlock Text="{Binding Name}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.Resources>
+            </TreeView>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
