@@ -52,6 +52,8 @@ namespace OrderManagement.Client
         {
             GenericGrid.Visibility = Visibility.Hidden;
             GenericTree.Visibility = Visibility.Visible;
+            DeleteButton.Visibility = Visibility.Hidden;
+            SaveButton.Visibility = Visibility.Hidden;
             _page = new ActivePage<ProductGroup>(RepositoryCollection.Instance.ProductTreeRepository, true);
             GenericTree.Items.Add(RepositoryCollection.Instance.ProductTreeRepository.Get(1));
         }
@@ -60,6 +62,8 @@ namespace OrderManagement.Client
         {
             GenericGrid.Visibility = Visibility.Visible;
             GenericTree.Visibility = Visibility.Hidden;
+            DeleteButton.Visibility = Visibility.Visible;
+            SaveButton.Visibility = Visibility.Visible;
             _page = GetActivePage(typeof(T));
             GenericGrid.DataContext = GetActivePage<T>().ObservableCollection;
         }
