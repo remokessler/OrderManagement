@@ -108,27 +108,21 @@ namespace OrderManagement.Client
             switch (Header.Content)
             {
                 case "Address":
-                    // Validate address here.
                     e.Row.Item = UpdateOrInsert<Address>(e.Row.Item);
                     break;
                 case "Customer":
-                    // Validate customer here.
                     e.Row.Item = UpdateOrInsert<Customer>(e.Row.Item);
                     break;
                 case "Order":
-                    // Validate order here.
                     e.Row.Item = UpdateOrInsert<Order>(e.Row.Item);
                     break;
                 case "OrderPosition":
-                    // Validate order position here.
                     e.Row.Item = UpdateOrInsert<OrderPosition>(e.Row.Item);
                     break;
                 case "Product":
-                    // Validate product here.
                     e.Row.Item = UpdateOrInsert<Product>(e.Row.Item);
                     break;
                 case "ProductGroup":
-                    // Validate product group here.
                     e.Row.Item = UpdateOrInsert<ProductGroup>(e.Row.Item);
                     break;
             }
