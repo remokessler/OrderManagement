@@ -2,6 +2,9 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using OrderManagement.Backend;
 
 namespace OrderManagement.Backend.Migrations
 {
@@ -31,9 +34,6 @@ namespace OrderManagement.Backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("From")
-                        .HasColumnType("datetimeoffset");
-
                     b.Property<int>("PostCode")
                         .HasColumnType("int");
 
@@ -43,7 +43,7 @@ namespace OrderManagement.Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Adresses");
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.Customer", b =>
@@ -53,7 +53,7 @@ namespace OrderManagement.Backend.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("AdressId")
+                    b.Property<int>("AddressId")
                         .HasColumnType("int");
 
                     b.Property<string>("Firstname")
@@ -66,7 +66,7 @@ namespace OrderManagement.Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdressId");
+                    b.HasIndex("AddressId");
 
                     b.ToTable("Customers");
                 });
@@ -130,7 +130,7 @@ namespace OrderManagement.Backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -154,7 +154,7 @@ namespace OrderManagement.Backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -168,7 +168,7 @@ namespace OrderManagement.Backend.Migrations
                 {
                     b.HasOne("OrderManagement.Backend.DataModels.Address", "Address")
                         .WithMany("Customers")
-                        .HasForeignKey("AdressId")
+                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -209,9 +209,7 @@ namespace OrderManagement.Backend.Migrations
                 {
                     b.HasOne("OrderManagement.Backend.DataModels.ProductGroup", "Parent")
                         .WithMany("Products")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
                 });

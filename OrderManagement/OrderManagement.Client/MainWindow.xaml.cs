@@ -2,13 +2,11 @@
 using OrderManagement.Backend.DataModels;
 using OrderManagement.Client.Models;
 using System;
-using System.Linq;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Collections.Generic;
 
 namespace OrderManagement.Client
 {
@@ -46,6 +44,8 @@ namespace OrderManagement.Client
                 SetActivePage<OrderPosition>();
             if (Header.Content.ToString() == "ProductTree")
                 SetTreePageActive();
+            if (Header.Content.ToString() == "BillStats")
+                SetStatisticPageActive();
         }
 
         private void SetTreePageActive()
@@ -54,8 +54,22 @@ namespace OrderManagement.Client
             GenericTree.Visibility = Visibility.Visible;
             DeleteButton.Visibility = Visibility.Hidden;
             SaveButton.Visibility = Visibility.Hidden;
+            Filter.Visibility = Visibility.Hidden;
+            FilterGrid.Visibility = Visibility.Hidden;
             _page = new ActivePage<ProductGroup>(RepositoryCollection.Instance.ProductTreeRepository, true);
+            GenericTree.Items.Clear();
             GenericTree.Items.Add(RepositoryCollection.Instance.ProductTreeRepository.Get(1));
+        }
+
+        private void SetStatisticPageActive()
+        {
+            GenericGrid.Visibility = Visibility.Visible;
+            GenericTree.Visibility = Visibility.Hidden;
+            Filter.Visibility = Visibility.Visible;
+            FilterGrid.Visibility = Visibility.Hidden;
+            var page = new ActivePage<BillStatistic>(RepositoryCollection.Instance.BillStatisticRepository);
+            _page = page;
+            GenericGrid.DataContext = page.ObservableCollection;
         }
 
         private void SetActivePage<T>() where T : IHasId
@@ -64,6 +78,8 @@ namespace OrderManagement.Client
             GenericTree.Visibility = Visibility.Hidden;
             DeleteButton.Visibility = Visibility.Visible;
             SaveButton.Visibility = Visibility.Visible;
+            Filter.Visibility = Visibility.Hidden;
+            FilterGrid.Visibility = Visibility.Hidden;
             _page = GetActivePage(typeof(T));
             GenericGrid.DataContext = GetActivePage<T>().ObservableCollection;
         }
@@ -165,6 +181,35 @@ namespace OrderManagement.Client
             var deleteId = ((T)GenericGrid.SelectedItem).Id;
             convertedPage.Repository.Delete(deleteId);
             GenericGrid.DataContext = GetActivePage<T>().ObservableCollection;
+        }
+
+        private void Filter_Click(object sender, RoutedEventArgs e)
+        {
+            if (FilterGrid.Visibility == Visibility.Visible)
+            {
+                FilterGrid.Visibility = Visibility.Hidden;
+                GenericGrid.Visibility = Visibility.Visible;
+                Filter.Content = "Filter";
+                GenericGrid.DataContext = GetActivePage<BillStatistic>().Repository.Get(
+                    b =>
+                        b.CustomerId.ToString().Contains(FilterCustomerNumber.Text)
+                        && b.AmountGross.ToString().Contains(FilterAmountGross.Text)
+                        && b.AmountNet.ToString().Contains(FilterAmountNet.Text)
+                        && b.Date.ToString().Contains(FilterBillDate.Text)
+                        && b.Id.ToString().Contains(FilterBillId.Text)
+                        && b.City.ToString().Contains(FilterCity.Text)
+                        && b.Country.ToString().Contains(FilterCountry.Text)
+                        && b.CustomerName.ToString().Contains(FilterFullName.Text)
+                        && b.PostCode.ToString().Contains(FilterPostCode.Text)
+                        && b.Street.ToString().Contains(FilterStreet.Text));
+            }
+            else
+            {
+                FilterGrid.Visibility = Visibility.Visible;
+                GenericGrid.Visibility = Visibility.Hidden;
+                Filter.Content = "Search";
+            }
+            
         }
     }
 }
