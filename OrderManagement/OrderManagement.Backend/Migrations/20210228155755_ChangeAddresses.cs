@@ -42,31 +42,6 @@ namespace OrderManagement.Backend.Migrations
                 UPDATE dbo.Customers
                 SET AddressId = 2
                 WHERE Id = 23");
-
-            migrationBuilder.Sql($@"
-                UPDATE dbo.Products
-                SET Price = 1.2
-                WHERE Id = 1");
-            migrationBuilder.Sql($@"
-                UPDATE dbo.Products
-                SET Price = 1.5
-                WHERE Id = 5");
-            migrationBuilder.Sql($@"
-                UPDATE dbo.Products
-                SET Price = 5.8
-                WHERE Id = 4");
-            migrationBuilder.Sql($@"
-                UPDATE dbo.Products
-                SET Price = 3.9
-                WHERE Id = 3");
-            migrationBuilder.Sql($@"
-                UPDATE dbo.Products
-                SET Price = 2.2
-                WHERE Id = 15");
-            migrationBuilder.Sql($@"
-                UPDATE dbo.Products
-                SET Price = 8.2
-                WHERE Id = 9");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
