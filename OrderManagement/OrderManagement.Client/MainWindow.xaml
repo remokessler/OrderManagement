@@ -20,6 +20,7 @@
             <fa:FontAwesomeIcon Name="Customer" Margin="0, 8" VerticalAlignment="Top" SolidIcon="User" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
             <fa:FontAwesomeIcon Name="Address" Margin="0, 8" VerticalAlignment="Top" SolidIcon="AddressCard" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
             <fa:FontAwesomeIcon Name="ProductTree" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Tree" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon Name="BillStats" Margin="0, 8" VerticalAlignment="Top" SolidIcon="MoneyBillAlt" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
         </StackPanel>
         <Grid Grid.Column="1" Margin="16">
             <Grid.RowDefinitions>
@@ -28,7 +29,7 @@
                 <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
             <HeaderedContentControl Name="Header" Grid.Row="0" FontSize="20" Margin="0,0,0,16" Foreground="LightSkyBlue">
-                    Title
+                Title
             </HeaderedContentControl>
             <DataGrid Grid.Row="1" Name="GenericGrid" ItemsSource="{Binding}" AutoGenerateColumns="True" VerticalAlignment="Stretch" RowEditEnding="RowEdited" AutoGeneratingColumn="GenericGrid_AutoGeneratingColumn"/>
             <TreeView Grid.Row="1" Name="GenericTree" ItemsSource="{Binding}" >
@@ -43,6 +44,36 @@
                     </HierarchicalDataTemplate>
                 </TreeView.Resources>
             </TreeView>
+            <Grid Grid.Row="1" Name="FilterGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="8">
+                    <Label>Customer Number</Label>
+                    <TextBox x:Name="FilterCustomerNumber"></TextBox>
+                    <Label>Full Name</Label>
+                    <TextBox x:Name="FilterFullName"></TextBox>
+                    <Label>Bill Date</Label>
+                    <TextBox x:Name="FilterBillDate"></TextBox>
+                    <Label>Bill ID</Label>
+                    <TextBox x:Name="FilterBillId"></TextBox>
+                    <Label>Amount Net</Label>
+                    <TextBox x:Name="FilterAmountNet"></TextBox>
+                    <Label>Amount Gross</Label>
+                    <TextBox x:Name="FilterAmountGross"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="8">
+                    <Label>Street</Label>
+                    <TextBox x:Name="FilterStreet"></TextBox>
+                    <Label>PostCode</Label>
+                    <TextBox x:Name="FilterPostCode"></TextBox>
+                    <Label>City</Label>
+                    <TextBox x:Name="FilterCity"></TextBox>
+                    <Label>Country</Label>
+                    <TextBox x:Name="FilterCountry"></TextBox>
+                </StackPanel>
+            </Grid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -50,6 +81,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Name="DeleteButton" Background="DarkRed" Margin="0, 16, 8, 0" Click="DeleteClicked">Delete</Button>
                 <Button Name="SaveButton" Grid.Column="1" Background="DarkGreen" Margin="8, 16, 0, 0">Save</Button>
+                <Button Visibility="Hidden" Click="Filter_Click" Name="Filter" Grid.ColumnSpan="2" Background="LightBlue" Margin="0, 16, 0, 0">Filter</Button>
             </Grid>
         </Grid>
     </Grid>
