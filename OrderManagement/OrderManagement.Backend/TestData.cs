@@ -73,7 +73,7 @@ namespace OrderManagement.Backend
             foreach (Customer cus in customer)
             {
                 modelbuilder.Entity<Customer>().HasData(cus);
-
+            }
 
             #region Products
             order.Add(new Order { Id = 1, Date = new DateTime(2020, 12, 10, 09, 10, 55), CustomerId = 1 });

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿#define DEMODATA
+using Microsoft.EntityFrameworkCore;
 using OrderManagement.Backend.DataModels;
 
 namespace OrderManagement.Backend
@@ -14,7 +15,7 @@ namespace OrderManagement.Backend
 
 
         public OrderManagementDbContext(DbContextOptions<OrderManagementDbContext> options) : base(options) { }
-            
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Order>().HasOne(o => o.Customer).WithMany(c => c.Orders);
@@ -25,6 +26,10 @@ namespace OrderManagement.Backend
             .HasForeignKey(x => x.ParentId)
             .IsRequired(false)
             .OnDelete(DeleteBehavior.Restrict);
+#if DEMODATA
+            new TestData(modelBuilder);
+#endif
+
         }
     }
 }
