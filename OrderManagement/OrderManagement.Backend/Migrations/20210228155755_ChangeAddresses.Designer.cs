@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrderManagement.Backend;
 
 namespace OrderManagement.Backend.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    partial class OrderManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210228155755_ChangeAddresses")]
+    partial class ChangeAddresses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +45,177 @@ namespace OrderManagement.Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Adresses");
+                    b.ToTable("Addresses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            City = "Gossau",
+                            Country = "Switzerland",
+                            PostCode = 9200,
+                            Street = "Gossauerstrasse 15"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            City = "Appenzell",
+                            Country = "Switzerland",
+                            PostCode = 9050,
+                            Street = "Ronis 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            City = "Appenzell",
+                            Country = "Switzerland",
+                            PostCode = 9050,
+                            Street = "Lehnmattstrasse 21"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            City = "Wil",
+                            Country = "Switzerland",
+                            PostCode = 9500,
+                            Street = "Rebhofweg 10"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            City = "Burgdorf",
+                            Country = "Switzerland",
+                            PostCode = 3400,
+                            Street = "Polieregasse 2"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            City = "Adelboden",
+                            Country = "Switzerland",
+                            PostCode = 3715,
+                            Street = "Zelgstrasse 2"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            City = "Biasca",
+                            Country = "Switzerland",
+                            PostCode = 6710,
+                            Street = "Via Lucomagno 115"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            City = "Muenstertal",
+                            Country = "Switzerland",
+                            PostCode = 7536,
+                            Street = "Chasatschas 111"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            City = "Walenstadt",
+                            Country = "Switzerland",
+                            PostCode = 8880,
+                            Street = "Walenseestrasse 34"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            City = "Kreuzlingen",
+                            Country = "Switzerland",
+                            PostCode = 8280,
+                            Street = "Sonnenstrasse 35"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            City = "Muellheim",
+                            Country = "Switzerland",
+                            PostCode = 8555,
+                            Street = "Bahnhofstrasse 16"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            City = "Frauenfeld",
+                            Country = "Switzerland",
+                            PostCode = 8500,
+                            Street = "Kurzenerchingerstrasse 5"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            City = "Winterthur",
+                            Country = "Switzerland",
+                            PostCode = 8400,
+                            Street = "Wartstrasse 16"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            City = "Nuerensdorf",
+                            Country = "Switzerland",
+                            PostCode = 8309,
+                            Street = "Kanzleistrasse 4"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            City = "Kloten",
+                            Country = "Switzerland",
+                            PostCode = 8302,
+                            Street = "Flughafenstrasse 25"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            City = "Dietikon",
+                            Country = "Switzerland",
+                            PostCode = 8953,
+                            Street = "Oetwilerstrasse 13"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            City = "Gerlafingen",
+                            Country = "Switzerland",
+                            PostCode = 4563,
+                            Street = "Muehlegasse 32"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            City = "Erlach",
+                            Country = "Switzerland",
+                            PostCode = 3235,
+                            Street = "Altstadt 27"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            City = "Wuerzburg",
+                            Country = "Germany",
+                            PostCode = 97074,
+                            Street = "Grasweg 2"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            City = "Bielefeld",
+                            Country = "Germany",
+                            PostCode = 33602,
+                            Street = "August-Bebel-Strasse 108"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            City = "Bucharest",
+                            Country = "Romania",
+                            PostCode = 30167,
+                            Street = "Strada Vasile Lascar 15"
+                        });
                 });
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.Customer", b =>

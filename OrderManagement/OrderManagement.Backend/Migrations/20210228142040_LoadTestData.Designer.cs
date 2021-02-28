@@ -10,7 +10,7 @@ using OrderManagement.Backend;
 namespace OrderManagement.Backend.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    [Migration("20210222184223_LoadTestData")]
+    [Migration("20210228142040_LoadTestData")]
     partial class LoadTestData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -987,7 +987,7 @@ namespace OrderManagement.Backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -1211,9 +1211,7 @@ namespace OrderManagement.Backend.Migrations
                 {
                     b.HasOne("OrderManagement.Backend.DataModels.ProductGroup", "Parent")
                         .WithMany("Products")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
                 });

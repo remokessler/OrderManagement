@@ -7,6 +7,18 @@ namespace OrderManagement.Backend.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Products_ProductGroups_ParentId",
+                table: "Products");
+
+            migrationBuilder.AlterColumn<int>(
+                name: "ParentId",
+                table: "Products",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int");
+
             migrationBuilder.AlterColumn<int>(
                 name: "ParentId",
                 table: "ProductGroups",
@@ -86,25 +98,7 @@ namespace OrderManagement.Backend.Migrations
                     { 4, "Kuechenartikel", 1 },
                     { 2, "Milch Produkte", 1 },
                     { 3, "Fruechte / Gemuese", 1 },
-                    { 5, "Fleisch", 1 },
-                });
-
-            migrationBuilder.InsertData(
-                table: "ProductGroups",
-                columns: new[] { "Id", "Name", "ParentId" },
-                values: new object[,]
-                {
-                    { 6, "Käses", 2 },
-                    { 7, "Milchschnitte", 2 },
-                    { 8, "Bratwurst", 5 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ProductGroups",
-                columns: new[] { "Id", "Name", "ParentId" },
-                values: new object[,]
-                {
-                    { 9, "Olma-Bratwurst mit Senf", 8 }
+                    { 5, "Fleisch", 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -226,10 +220,22 @@ namespace OrderManagement.Backend.Migrations
                 table: "OrderPositions",
                 columns: new[] { "Id", "Count", "OrderId", "Position", "ProductId" },
                 values: new object[] { 2, 3, 1, 2, 3 });
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Products_ProductGroups_ParentId",
+                table: "Products",
+                column: "ParentId",
+                principalTable: "ProductGroups",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Products_ProductGroups_ParentId",
+                table: "Products");
+
             migrationBuilder.DeleteData(
                 table: "Customers",
                 keyColumn: "Id",
@@ -917,6 +923,16 @@ namespace OrderManagement.Backend.Migrations
 
             migrationBuilder.AlterColumn<int>(
                 name: "ParentId",
+                table: "Products",
+                type: "int",
+                nullable: false,
+                defaultValue: 0,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<int>(
+                name: "ParentId",
                 table: "ProductGroups",
                 type: "int",
                 nullable: false,
@@ -924,6 +940,14 @@ namespace OrderManagement.Backend.Migrations
                 oldClrType: typeof(int),
                 oldType: "int",
                 oldNullable: true);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Products_ProductGroups_ParentId",
+                table: "Products",
+                column: "ParentId",
+                principalTable: "ProductGroups",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
     }
 }
