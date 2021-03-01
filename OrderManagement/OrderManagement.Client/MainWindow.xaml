@@ -21,6 +21,7 @@
             <fa:FontAwesomeIcon Name="Address" Margin="0, 8" VerticalAlignment="Top" SolidIcon="AddressCard" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
             <fa:FontAwesomeIcon Name="ProductTree" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Tree" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
             <fa:FontAwesomeIcon Name="BillStats" Margin="0, 8" VerticalAlignment="Top" SolidIcon="MoneyBillAlt" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon Name="YearStats" Margin="0, 8" VerticalAlignment="Top" SolidIcon="CalendarAlt" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
         </StackPanel>
         <Grid Grid.Column="1" Margin="16">
             <Grid.RowDefinitions>

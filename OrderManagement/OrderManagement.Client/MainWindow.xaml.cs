@@ -2,7 +2,10 @@
 using OrderManagement.Backend.DataModels;
 using OrderManagement.Client.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Dynamic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -46,10 +49,13 @@ namespace OrderManagement.Client
                 SetTreePageActive();
             if (Header.Content.ToString() == "BillStats")
                 SetStatisticPageActive();
+            if (Header.Content.ToString() == "YearStats")
+                SetYearStatisticPageActive();
         }
 
         private void SetTreePageActive()
         {
+            GenericGrid.Columns.Clear();
             GenericGrid.Visibility = Visibility.Hidden;
             GenericTree.Visibility = Visibility.Visible;
             DeleteButton.Visibility = Visibility.Hidden;
@@ -63,8 +69,11 @@ namespace OrderManagement.Client
 
         private void SetStatisticPageActive()
         {
+            GenericGrid.Columns.Clear();
             GenericGrid.Visibility = Visibility.Visible;
             GenericTree.Visibility = Visibility.Hidden;
+            DeleteButton.Visibility = Visibility.Hidden;
+            SaveButton.Visibility = Visibility.Hidden;
             Filter.Visibility = Visibility.Visible;
             FilterGrid.Visibility = Visibility.Hidden;
             var page = new ActivePage<BillStatistic>(RepositoryCollection.Instance.BillStatisticRepository);
@@ -72,8 +81,62 @@ namespace OrderManagement.Client
             GenericGrid.DataContext = page.ObservableCollection;
         }
 
+        private void SetYearStatisticPageActive()
+        {
+            GenericGrid.Visibility = Visibility.Visible;
+            GenericTree.Visibility = Visibility.Hidden;
+            DeleteButton.Visibility = Visibility.Hidden;
+            SaveButton.Visibility = Visibility.Hidden;
+            Filter.Visibility = Visibility.Hidden;
+            FilterGrid.Visibility = Visibility.Hidden;
+            var page = new ActivePage<YearStatistic>(RepositoryCollection.Instance.YearStatisticRepository);
+            _page = page;
+            var statistics = RepositoryCollection.Instance.YearStatisticRepository.Get().ToArray();
+            var pivotedList = new[] {
+                CreateStatisticObject(statistics, "AvgCountProductsPerOrder", x => x.AvgCountProductsPerOrder.ToString()),
+                CreateStatisticObject(statistics, "CountProducts", x => x.CountProducts.ToString()),
+                CreateStatisticObject(statistics, "CountOrders", x => x.CountOrders.ToString()),
+                CreateStatisticObject(statistics, "AvgSalesPerCustomer", x => x.AvgSalesPerCustomer.ToString()),
+                CreateStatisticObject(statistics, "TotalSales", x => x.TotalSales.ToString()),
+            };
+            GenericGrid.Columns.Clear();
+            GenericGrid.DataContext = new ObservableCollection<object>(pivotedList);
+            GenericGrid.Columns.Add(new DataGridTextColumn
+            {
+                Header = "Category",
+                Binding = new Binding("Category")
+            });
+            GenericGrid.Columns.Add(new DataGridTextColumn
+            {
+                Header = "Year",
+                Binding = new Binding("Year")
+            });
+            for (int i = 0; i < statistics.Count(); i++)
+            {
+                var column = new DataGridTextColumn
+                {
+                    Header = "Q" + statistics[i].Quarter + "-" + statistics[i].Year,
+                    Binding = new Binding("Q" + statistics[i].Quarter + "-" + statistics[i].Year)
+                };
+                GenericGrid.Columns.Add(column);
+            }
+        }
+
+        private object CreateStatisticObject(YearStatistic[] statistics, string propName, Func<YearStatistic, string> setProp)
+        {
+            dynamic expando = new ExpandoObject();
+            expando.Category = propName;
+            expando.Year = DateTime.Now;
+            for (int i = 0; i < statistics.Count(); i++)
+            {
+                ((IDictionary<string, object>)expando)["Q" + statistics[i].Quarter + "-" + statistics[i].Year] = setProp(statistics[i]);
+            }
+            return expando as ExpandoObject;
+        }
+
         private void SetActivePage<T>() where T : IHasId
         {
+            GenericGrid.Columns.Clear();
             GenericGrid.Visibility = Visibility.Visible;
             GenericTree.Visibility = Visibility.Hidden;
             DeleteButton.Visibility = Visibility.Visible;

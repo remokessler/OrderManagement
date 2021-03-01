@@ -16,6 +16,7 @@ namespace OrderManagement.Backend
         public IRepository<ProductGroup> ProductGroupRepository { get; private set; }
         public IRepository<ProductGroup> ProductTreeRepository { get; private set; }
         public IRepository<BillStatistic> BillStatisticRepository { get; private set; }
+        public IRepository<YearStatistic> YearStatisticRepository { get; private set; }
 
         private OrderManagementDbContext _dbContext { get; set; }
 
@@ -35,6 +36,7 @@ namespace OrderManagement.Backend
             ProductGroupRepository = new ProductGroupRepository(_dbContext);
             ProductTreeRepository = new ProductTreeRepository(_dbContext);
             BillStatisticRepository = new BillStatisticsRepository(_dbContext);
+            YearStatisticRepository = new YearStatisticRepository(_dbContext);
         }
     }
 }
