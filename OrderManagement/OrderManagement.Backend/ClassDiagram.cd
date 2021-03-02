@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OrderManagement.Backend.DataModels.Address" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAMAAAAAAAAAAIAAAAAAAIAgAAAAAA=</HashCode>
+      <FileName>DataModels\Address.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.DataModels.BillStatistic" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAIAAEAAAAAQAIAQBABAAIAgAAAAAA=</HashCode>
+      <FileName>DataModels\BillStatistic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.DataModels.Customer" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAECAEAAAAAAAAAEAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\Customer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.DataModels.Order" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAkAAAAAAAAAAAAABABAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\Order.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.DataModels.OrderPosition" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAECAAAAAAAAAAAkAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\OrderPosition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.DataModels.Product" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAQAAAAAEAAAAQAQAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>DataModels\Product.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.DataModels.ProductGroup" BaseTypeListCollapsed="true">
+    <Position X="12" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAEQAQAAAAAAAAAAgAAAAAAAAQ=</HashCode>
+      <FileName>DataModels\ProductGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Helpers.RawSqlHelper">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\RawSqlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.Migrations.Init" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20201228154457_Init.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.Migrations.LoadTestData" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20210228142040_LoadTestData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.Migrations.ChangeAddresses" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20210228155755_ChangeAddresses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.Migrations.AddFunctions" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20210228164014_AddFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.Migrations.OrderManagementDbContextModelSnapshot" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\OrderManagementDbContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.AddressRepository">
+    <Position X="7.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\AddressRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.BaseRepository">
+    <Position X="8.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.BillStatisticsRepository">
+    <Position X="14.25" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\BillStatisticsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.CustomerRepository">
+    <Position X="0.75" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\CustomerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.OrderPositionRepository">
+    <Position X="5.25" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\OrderPositionRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.OrderRepository">
+    <Position X="9.75" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\OrderRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.ProductGroupRepository">
+    <Position X="12" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ProductGroupRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.ProductRepository">
+    <Position X="16.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ProductRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.Repositories.ProductTreeRepository">
+    <Position X="3" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ProductTreeRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.OrderManagementDbContext">
+    <Position X="10.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAVAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAQ=</HashCode>
+      <FileName>OrderManagementDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.OrderManagementDbContextFactory" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrderManagementDbContextFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrderManagement.Backend.RepositoryCollection">
+    <Position X="8.25" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAFEAAAAgAAAAAAEEAAAAAAAAIAEAAQQAEAAAAAAAA=</HashCode>
+      <FileName>RepositoryCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagement.Backend.TestData">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="OrderManagement.Backend.DataModels.IHasId">
+    <Position X="8.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\IHasId.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OrderManagement.Backend.DataModels.IProduct">
+    <Position X="16.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\IProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OrderManagement.Backend.Repositories.IRepository&lt;T&gt;">
+    <Position X="12.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
