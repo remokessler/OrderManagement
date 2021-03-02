@@ -55,7 +55,7 @@ namespace OrderManagement.Backend.Repositories
 
         public IEnumerable<BillStatistic> Get(Func<BillStatistic, bool> where)
         {
-            // Could be optimized. But too much work.
+            // Could be optimized. But it work.
             return Get().Where(where);
         }
 
