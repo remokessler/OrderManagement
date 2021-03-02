@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace OrderManagement.Client.Models
 {
-    internal class ActivePage<T> : IActivePage where T : IHasId
+    internal class ActivePage<T> : IActivePage
     {
         public IRepository<T> Repository { get; }
         public ObservableCollection<T> ObservableCollection { get; set; }
@@ -18,6 +18,7 @@ namespace OrderManagement.Client.Models
             ObservableCollection = new ObservableCollection<T>();
             Repository.Get()?.ToList()?.ForEach(ObservableCollection.Add);
         }
+
         public ActivePage(IRepository<T> repository, bool isTree)
         {
             Repository = repository;

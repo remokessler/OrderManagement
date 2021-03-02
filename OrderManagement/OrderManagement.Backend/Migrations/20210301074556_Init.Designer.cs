@@ -10,8 +10,8 @@ using OrderManagement.Backend;
 namespace OrderManagement.Backend.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    [Migration("20210228142040_LoadTestData")]
-    partial class LoadTestData
+    [Migration("20210301074556_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1161,8 +1161,32 @@ namespace OrderManagement.Backend.Migrations
                         new
                         {
                             Id = 5,
-                            Name = "Fleisch",
-                            ParentId = 1
+                            Name = "Käse",
+                            ParentId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Appenzeller",
+                            ParentId = 5
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Schoggi-Milch",
+                            ParentId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Messer",
+                            ParentId = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Erdbeeren",
+                            ParentId = 3
                         });
                 });
 

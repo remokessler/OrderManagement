@@ -127,7 +127,7 @@ namespace OrderManagement.Backend
             product.Add(new Product { Id = 13, Name = "Salami", Price = 8.90M, ParentId = 4 });
             product.Add(new Product { Id = 14, Name = "Zwiebel", Price = 0.20M, ParentId = 2 });
             product.Add(new Product { Id = 15, Name = "Majonaise", Price = 3.35M, ParentId = 1 });
-            product.Add(new Product { Id = 16, Name = "Banane", Price = 1.60M, ParentId = 2 });
+            product.Add(new Product { Id = 16, Name = "Banane", Price = 1.60M, ParentId = 2});
             #endregion
             foreach (Product pro in product)
             {
@@ -189,7 +189,11 @@ namespace OrderManagement.Backend
             productgrp.Add(new ProductGroup { Id = 2, Name = "Milch Produkte", ParentId = 1 });
             productgrp.Add(new ProductGroup { Id = 3, Name = "Fruechte / Gemuese", ParentId = 1 });
             productgrp.Add(new ProductGroup { Id = 4, Name = "Kuechenartikel", ParentId = 1 });
-            productgrp.Add(new ProductGroup { Id = 5, Name = "Fleisch", ParentId = 1 });
+            productgrp.Add(new ProductGroup { Id = 5, Name = "Käse", ParentId = 2 });
+            productgrp.Add(new ProductGroup { Id = 6, Name = "Appenzeller", ParentId = 5 });
+            productgrp.Add(new ProductGroup { Id = 7, Name = "Schoggi-Milch", ParentId = 2 });
+            productgrp.Add(new ProductGroup { Id = 8, Name = "Messer", ParentId = 4 });
+            productgrp.Add(new ProductGroup { Id = 9, Name = "Erdbeeren", ParentId = 3 });
             #endregion
             foreach (ProductGroup prg in productgrp)
             {
