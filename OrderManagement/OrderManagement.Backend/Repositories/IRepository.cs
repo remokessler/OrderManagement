@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OrderManagement.Backend.Repositories
 {
@@ -11,5 +12,8 @@ namespace OrderManagement.Backend.Repositories
         T Get(int id);
         T Update(T newObject);
         void Delete(int id);
+        string GetTableName() => nameof(T);
+        int Count() => Get().Count();
+        int Count(Func<T, bool> where) => Get(where).Count();
     }
 }

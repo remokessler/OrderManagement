@@ -48,7 +48,7 @@ namespace OrderManagement.Backend.Repositories
         {
             var oldOrder = DbContext.Orders.First(o => o.Id == newObject.Id);
             oldOrder.CustomerId = newObject.CustomerId;
-            oldOrder.Customer = DbContext.Customers.First(c => c.Id == newObject.CustomerId);
+            oldOrder.Customer = DbContext.Customers.First(c => c.Id == newObject.CustomerId.ToString());
             oldOrder.Date = newObject.Date;
             DbContext.Update(oldOrder);
             DbContext.SaveChanges();
