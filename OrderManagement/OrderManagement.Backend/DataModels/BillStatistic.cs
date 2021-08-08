@@ -11,7 +11,7 @@ namespace OrderManagement.Backend.DataModels
         public string City { get; set; }
         public string Country { get; set; }
         public DateTime Date { get; set; }
-        public int Id { get; set; }
+        public string Id { get; set; }
         public decimal AmountNet { get; set; }
         public decimal AmountGross { get; set; }
     }

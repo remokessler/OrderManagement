@@ -24,7 +24,7 @@ namespace OrderManagement.Backend.Repositories
             return toAdd;
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             var address = DbContext.Addresses.First(c => c.Id == id);
             DbContext.Remove(address);
@@ -41,7 +41,7 @@ namespace OrderManagement.Backend.Repositories
             return DbContext.Addresses.Where(where);
         }
 
-        public Address Get(int id)
+        public Address Get(string id)
         {
             return DbContext.Addresses.First(a => a.Id == id);
         }

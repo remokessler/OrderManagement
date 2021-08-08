@@ -23,7 +23,7 @@ namespace OrderManagement.Backend.DataModels
         [Required]
         public string Firstname { get; set; }
         [ForeignKey(nameof(Address))]
-        public int AddressId { get; set; }
+        public string AddressId { get; set; }
         public Address Address { get; set; }
         public IEnumerable<Order> Orders { get; set; }
 

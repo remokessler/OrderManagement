@@ -9,11 +9,11 @@ namespace OrderManagement.Backend.DataModels
     public class ProductGroup : IHasId
     {
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required]
         public string Name { get; set; }
         [ForeignKey(nameof(Parent))]
-        public int? ParentId { get; set; }
+        public string? ParentId { get; set; }
         public IEnumerable<Product> Products { get; set; }
         public IEnumerable<ProductGroup> Children { get; set; }
         public ProductGroup Parent { get; set; }

@@ -24,7 +24,7 @@ namespace OrderManagement.Backend.Repositories
             DbContext.SaveChanges();
             return toAdd;
         }
-        public void Delete(int id)
+        public void Delete(string id)
         {
             var orderPosition = DbContext.OrderPositions.First(o => o.Id == id);
             DbContext.Remove(orderPosition);
@@ -41,7 +41,7 @@ namespace OrderManagement.Backend.Repositories
             return DbContext.OrderPositions.Where(where);
         }
 
-        public OrderPosition Get(int id)
+        public OrderPosition Get(string id)
         {
             return DbContext.OrderPositions.First(o => o.Id == id);
         }

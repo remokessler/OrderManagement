@@ -10,8 +10,8 @@ using OrderManagement.Backend;
 namespace OrderManagement.Backend.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    [Migration("20210301074556_Init")]
-    partial class Init
+    [Migration("20210808105447_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,8 @@ namespace OrderManagement.Backend.Migrations
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.Address", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -50,7 +48,7 @@ namespace OrderManagement.Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = "1",
                             City = "Gossau",
                             Country = "Switzerland",
                             PostCode = 9200,
@@ -58,7 +56,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            Id = "2",
                             City = "Appenzell",
                             Country = "Switzerland",
                             PostCode = 9050,
@@ -66,7 +64,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            Id = "3",
                             City = "Appenzell",
                             Country = "Switzerland",
                             PostCode = 9050,
@@ -74,7 +72,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            Id = "4",
                             City = "Wil",
                             Country = "Switzerland",
                             PostCode = 9500,
@@ -82,7 +80,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            Id = "5",
                             City = "Burgdorf",
                             Country = "Switzerland",
                             PostCode = 3400,
@@ -90,7 +88,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 6,
+                            Id = "6",
                             City = "Adelboden",
                             Country = "Switzerland",
                             PostCode = 3715,
@@ -98,7 +96,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 7,
+                            Id = "7",
                             City = "Biasca",
                             Country = "Switzerland",
                             PostCode = 6710,
@@ -106,7 +104,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 8,
+                            Id = "8",
                             City = "Muenstertal",
                             Country = "Switzerland",
                             PostCode = 7536,
@@ -114,7 +112,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 9,
+                            Id = "9",
                             City = "Walenstadt",
                             Country = "Switzerland",
                             PostCode = 8880,
@@ -122,7 +120,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 10,
+                            Id = "10",
                             City = "Kreuzlingen",
                             Country = "Switzerland",
                             PostCode = 8280,
@@ -130,7 +128,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 11,
+                            Id = "11",
                             City = "Muellheim",
                             Country = "Switzerland",
                             PostCode = 8555,
@@ -138,7 +136,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 12,
+                            Id = "12",
                             City = "Frauenfeld",
                             Country = "Switzerland",
                             PostCode = 8500,
@@ -146,7 +144,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 13,
+                            Id = "13",
                             City = "Winterthur",
                             Country = "Switzerland",
                             PostCode = 8400,
@@ -154,7 +152,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 14,
+                            Id = "14",
                             City = "Nuerensdorf",
                             Country = "Switzerland",
                             PostCode = 8309,
@@ -162,7 +160,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 15,
+                            Id = "15",
                             City = "Kloten",
                             Country = "Switzerland",
                             PostCode = 8302,
@@ -170,7 +168,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 16,
+                            Id = "16",
                             City = "Dietikon",
                             Country = "Switzerland",
                             PostCode = 8953,
@@ -178,7 +176,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 17,
+                            Id = "17",
                             City = "Gerlafingen",
                             Country = "Switzerland",
                             PostCode = 4563,
@@ -186,7 +184,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 18,
+                            Id = "18",
                             City = "Erlach",
                             Country = "Switzerland",
                             PostCode = 3235,
@@ -194,7 +192,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 19,
+                            Id = "19",
                             City = "Wuerzburg",
                             Country = "Germany",
                             PostCode = 97074,
@@ -202,7 +200,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 20,
+                            Id = "20",
                             City = "Bielefeld",
                             Country = "Germany",
                             PostCode = 33602,
@@ -210,7 +208,7 @@ namespace OrderManagement.Backend.Migrations
                         },
                         new
                         {
-                            Id = 21,
+                            Id = "21",
                             City = "Bucharest",
                             Country = "Romania",
                             PostCode = 30167,
@@ -220,20 +218,27 @@ namespace OrderManagement.Backend.Migrations
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.Customer", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
+                    b.Property<string>("AddressId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Webpage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -245,162 +250,162 @@ namespace OrderManagement.Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            AddressId = 1,
+                            Id = "1",
+                            AddressId = "1",
                             Firstname = "Alfred",
                             Name = "Koller"
                         },
                         new
                         {
-                            Id = 2,
-                            AddressId = 2,
+                            Id = "2",
+                            AddressId = "2",
                             Firstname = "Karl",
                             Name = "Meier"
                         },
                         new
                         {
-                            Id = 3,
-                            AddressId = 3,
+                            Id = "3",
+                            AddressId = "3",
                             Firstname = "Marco",
                             Name = "Ebneter"
                         },
                         new
                         {
-                            Id = 4,
-                            AddressId = 4,
+                            Id = "4",
+                            AddressId = "4",
                             Firstname = "Mike",
                             Name = "Faessler"
                         },
                         new
                         {
-                            Id = 5,
-                            AddressId = 5,
+                            Id = "5",
+                            AddressId = "5",
                             Firstname = "Remo",
                             Name = "Kessler"
                         },
                         new
                         {
-                            Id = 6,
-                            AddressId = 6,
+                            Id = "6",
+                            AddressId = "6",
                             Firstname = "Tim",
                             Name = "Manser"
                         },
                         new
                         {
-                            Id = 7,
-                            AddressId = 7,
+                            Id = "7",
+                            AddressId = "7",
                             Firstname = "Martin",
                             Name = "Streule"
                         },
                         new
                         {
-                            Id = 8,
-                            AddressId = 8,
+                            Id = "8",
+                            AddressId = "8",
                             Firstname = "Michael",
                             Name = "Messmer"
                         },
                         new
                         {
-                            Id = 9,
-                            AddressId = 9,
+                            Id = "9",
+                            AddressId = "9",
                             Firstname = "Berta",
                             Name = "Keiser"
                         },
                         new
                         {
-                            Id = 10,
-                            AddressId = 10,
+                            Id = "10",
+                            AddressId = "10",
                             Firstname = "Tobias",
                             Name = "Wirth"
                         },
                         new
                         {
-                            Id = 11,
-                            AddressId = 11,
+                            Id = "11",
+                            AddressId = "11",
                             Firstname = "Roland",
                             Name = "Zumstein"
                         },
                         new
                         {
-                            Id = 12,
-                            AddressId = 12,
+                            Id = "12",
+                            AddressId = "12",
                             Firstname = "Konrad",
                             Name = "Mazenauer"
                         },
                         new
                         {
-                            Id = 13,
-                            AddressId = 13,
+                            Id = "13",
+                            AddressId = "13",
                             Firstname = "Patrick",
                             Name = "Stadler"
                         },
                         new
                         {
-                            Id = 14,
-                            AddressId = 14,
+                            Id = "14",
+                            AddressId = "14",
                             Firstname = "Natascha",
                             Name = "Luechinger"
                         },
                         new
                         {
-                            Id = 15,
-                            AddressId = 15,
+                            Id = "15",
+                            AddressId = "15",
                             Firstname = "Stefanie",
                             Name = "Staub"
                         },
                         new
                         {
-                            Id = 16,
-                            AddressId = 16,
+                            Id = "16",
+                            AddressId = "16",
                             Firstname = "Emanuel",
                             Name = "Steingruber"
                         },
                         new
                         {
-                            Id = 17,
-                            AddressId = 17,
+                            Id = "17",
+                            AddressId = "17",
                             Firstname = "Nicole",
                             Name = "Fritsche"
                         },
                         new
                         {
-                            Id = 18,
-                            AddressId = 18,
+                            Id = "18",
+                            AddressId = "18",
                             Firstname = "Karin",
                             Name = "Geher"
                         },
                         new
                         {
-                            Id = 19,
-                            AddressId = 19,
+                            Id = "19",
+                            AddressId = "19",
                             Firstname = "Ruedi",
                             Name = "Wuerth"
                         },
                         new
                         {
-                            Id = 20,
-                            AddressId = 20,
+                            Id = "20",
+                            AddressId = "20",
                             Firstname = "Tamara",
                             Name = "Ebneter"
                         },
                         new
                         {
-                            Id = 21,
-                            AddressId = 21,
+                            Id = "21",
+                            AddressId = "21",
                             Firstname = "Antonia",
                             Name = "Faessler"
                         },
                         new
                         {
-                            Id = 22,
-                            AddressId = 8,
+                            Id = "22",
+                            AddressId = "8",
                             Firstname = "Alejandro",
                             Name = "Faessler"
                         },
                         new
                         {
-                            Id = 23,
-                            AddressId = 10,
+                            Id = "23",
+                            AddressId = "10",
                             Firstname = "Pascal",
                             Name = "Koller"
                         });
@@ -408,13 +413,11 @@ namespace OrderManagement.Backend.Migrations
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.Order", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -428,198 +431,196 @@ namespace OrderManagement.Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            CustomerId = 1,
+                            Id = "1",
+                            CustomerId = "1",
                             Date = new DateTime(2020, 12, 10, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 2,
-                            CustomerId = 2,
+                            Id = "2",
+                            CustomerId = "2",
                             Date = new DateTime(2020, 11, 5, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 3,
-                            CustomerId = 3,
+                            Id = "3",
+                            CustomerId = "3",
                             Date = new DateTime(2020, 9, 12, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 4,
-                            CustomerId = 4,
+                            Id = "4",
+                            CustomerId = "4",
                             Date = new DateTime(2020, 2, 10, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 5,
-                            CustomerId = 5,
+                            Id = "5",
+                            CustomerId = "5",
                             Date = new DateTime(2020, 5, 10, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 6,
-                            CustomerId = 6,
+                            Id = "6",
+                            CustomerId = "6",
                             Date = new DateTime(2020, 6, 10, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 7,
-                            CustomerId = 7,
+                            Id = "7",
+                            CustomerId = "7",
                             Date = new DateTime(2020, 3, 15, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 8,
-                            CustomerId = 8,
+                            Id = "8",
+                            CustomerId = "8",
                             Date = new DateTime(2020, 2, 20, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 9,
-                            CustomerId = 9,
+                            Id = "9",
+                            CustomerId = "9",
                             Date = new DateTime(2020, 8, 25, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 10,
-                            CustomerId = 10,
+                            Id = "10",
+                            CustomerId = "10",
                             Date = new DateTime(2020, 11, 30, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 11,
-                            CustomerId = 11,
+                            Id = "11",
+                            CustomerId = "11",
                             Date = new DateTime(2019, 5, 13, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 12,
-                            CustomerId = 12,
+                            Id = "12",
+                            CustomerId = "12",
                             Date = new DateTime(2019, 5, 14, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 13,
-                            CustomerId = 13,
+                            Id = "13",
+                            CustomerId = "13",
                             Date = new DateTime(2019, 10, 5, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 14,
-                            CustomerId = 14,
+                            Id = "14",
+                            CustomerId = "14",
                             Date = new DateTime(2019, 12, 30, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 15,
-                            CustomerId = 15,
+                            Id = "15",
+                            CustomerId = "15",
                             Date = new DateTime(2019, 2, 23, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 16,
-                            CustomerId = 16,
+                            Id = "16",
+                            CustomerId = "16",
                             Date = new DateTime(2019, 1, 12, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 17,
-                            CustomerId = 17,
+                            Id = "17",
+                            CustomerId = "17",
                             Date = new DateTime(2019, 6, 28, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 18,
-                            CustomerId = 18,
+                            Id = "18",
+                            CustomerId = "18",
                             Date = new DateTime(2019, 8, 17, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 19,
-                            CustomerId = 19,
+                            Id = "19",
+                            CustomerId = "19",
                             Date = new DateTime(2018, 12, 18, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 20,
-                            CustomerId = 20,
+                            Id = "20",
+                            CustomerId = "20",
                             Date = new DateTime(2018, 11, 9, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 21,
-                            CustomerId = 21,
+                            Id = "21",
+                            CustomerId = "21",
                             Date = new DateTime(2018, 8, 3, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 22,
-                            CustomerId = 22,
+                            Id = "22",
+                            CustomerId = "22",
                             Date = new DateTime(2018, 2, 16, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 23,
-                            CustomerId = 1,
+                            Id = "23",
+                            CustomerId = "1",
                             Date = new DateTime(2018, 1, 11, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 24,
-                            CustomerId = 2,
+                            Id = "24",
+                            CustomerId = "2",
                             Date = new DateTime(2018, 5, 13, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 25,
-                            CustomerId = 3,
+                            Id = "25",
+                            CustomerId = "3",
                             Date = new DateTime(2018, 6, 12, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 26,
-                            CustomerId = 4,
+                            Id = "26",
+                            CustomerId = "4",
                             Date = new DateTime(2018, 4, 27, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 27,
-                            CustomerId = 5,
+                            Id = "27",
+                            CustomerId = "5",
                             Date = new DateTime(2017, 12, 26, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 28,
-                            CustomerId = 6,
+                            Id = "28",
+                            CustomerId = "6",
                             Date = new DateTime(2021, 12, 29, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 29,
-                            CustomerId = 7,
+                            Id = "29",
+                            CustomerId = "7",
                             Date = new DateTime(2017, 12, 26, 9, 10, 55, 0, DateTimeKind.Unspecified)
                         });
                 });
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.OrderPosition", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Position")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -632,363 +633,361 @@ namespace OrderManagement.Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = "1",
                             Count = 5,
-                            OrderId = 1,
+                            OrderId = "1",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = "2",
                             Count = 3,
-                            OrderId = 1,
+                            OrderId = "1",
                             Position = 2,
-                            ProductId = 3
+                            ProductId = "3"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = "3",
                             Count = 2,
-                            OrderId = 2,
+                            OrderId = "2",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = "4",
                             Count = 1,
-                            OrderId = 3,
+                            OrderId = "3",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = "5",
                             Count = 8,
-                            OrderId = 3,
+                            OrderId = "3",
                             Position = 2,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = "6",
                             Count = 12,
-                            OrderId = 3,
+                            OrderId = "3",
                             Position = 3,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 7,
+                            Id = "7",
                             Count = 15,
-                            OrderId = 3,
+                            OrderId = "3",
                             Position = 4,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 8,
+                            Id = "8",
                             Count = 9,
-                            OrderId = 4,
+                            OrderId = "4",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 9,
+                            Id = "9",
                             Count = 8,
-                            OrderId = 4,
+                            OrderId = "4",
                             Position = 2,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 10,
+                            Id = "10",
                             Count = 4,
-                            OrderId = 5,
+                            OrderId = "5",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 11,
+                            Id = "11",
                             Count = 3,
-                            OrderId = 6,
+                            OrderId = "6",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 12,
+                            Id = "12",
                             Count = 5,
-                            OrderId = 7,
+                            OrderId = "7",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 13,
+                            Id = "13",
                             Count = 7,
-                            OrderId = 7,
+                            OrderId = "7",
                             Position = 2,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 14,
+                            Id = "14",
                             Count = 26,
-                            OrderId = 8,
+                            OrderId = "8",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 15,
+                            Id = "15",
                             Count = 361,
-                            OrderId = 9,
+                            OrderId = "9",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 16,
+                            Id = "16",
                             Count = 20,
-                            OrderId = 10,
+                            OrderId = "10",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 17,
+                            Id = "17",
                             Count = 515,
-                            OrderId = 11,
+                            OrderId = "11",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 18,
+                            Id = "18",
                             Count = 2,
-                            OrderId = 12,
+                            OrderId = "12",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 19,
+                            Id = "19",
                             Count = 1,
-                            OrderId = 13,
+                            OrderId = "13",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 20,
+                            Id = "20",
                             Count = 8,
-                            OrderId = 13,
+                            OrderId = "13",
                             Position = 2,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 21,
+                            Id = "21",
                             Count = 30,
-                            OrderId = 13,
+                            OrderId = "13",
                             Position = 3,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 22,
+                            Id = "22",
                             Count = 40,
-                            OrderId = 13,
+                            OrderId = "13",
                             Position = 4,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 23,
+                            Id = "23",
                             Count = 2,
-                            OrderId = 14,
+                            OrderId = "14",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 24,
+                            Id = "24",
                             Count = 7,
-                            OrderId = 15,
+                            OrderId = "15",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 25,
+                            Id = "25",
                             Count = 8,
-                            OrderId = 16,
+                            OrderId = "16",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 26,
+                            Id = "26",
                             Count = 5,
-                            OrderId = 17,
+                            OrderId = "17",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 27,
+                            Id = "27",
                             Count = 9,
-                            OrderId = 18,
+                            OrderId = "18",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 28,
+                            Id = "28",
                             Count = 3,
-                            OrderId = 18,
+                            OrderId = "18",
                             Position = 2,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 29,
+                            Id = "29",
                             Count = 10,
-                            OrderId = 19,
+                            OrderId = "19",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 30,
+                            Id = "30",
                             Count = 20,
-                            OrderId = 20,
+                            OrderId = "20",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 31,
+                            Id = "31",
                             Count = 15,
-                            OrderId = 21,
+                            OrderId = "21",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 32,
+                            Id = "32",
                             Count = 88,
-                            OrderId = 22,
+                            OrderId = "22",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 33,
+                            Id = "33",
                             Count = 20,
-                            OrderId = 23,
+                            OrderId = "23",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 34,
+                            Id = "34",
                             Count = 30,
-                            OrderId = 24,
+                            OrderId = "24",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 35,
+                            Id = "35",
                             Count = 80,
-                            OrderId = 25,
+                            OrderId = "25",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 36,
+                            Id = "36",
                             Count = 90,
-                            OrderId = 25,
+                            OrderId = "25",
                             Position = 2,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 37,
+                            Id = "37",
                             Count = 100,
-                            OrderId = 25,
+                            OrderId = "25",
                             Position = 3,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 38,
+                            Id = "38",
                             Count = 42,
-                            OrderId = 25,
+                            OrderId = "25",
                             Position = 4,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 39,
+                            Id = "39",
                             Count = 15,
-                            OrderId = 25,
+                            OrderId = "25",
                             Position = 5,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 40,
+                            Id = "40",
                             Count = 35,
-                            OrderId = 26,
+                            OrderId = "26",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 41,
+                            Id = "41",
                             Count = 45,
-                            OrderId = 27,
+                            OrderId = "27",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 42,
+                            Id = "42",
                             Count = 2,
-                            OrderId = 28,
+                            OrderId = "28",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         },
                         new
                         {
-                            Id = 43,
+                            Id = "43",
                             Count = 1,
-                            OrderId = 29,
+                            OrderId = "29",
                             Position = 1,
-                            ProductId = 1
+                            ProductId = "1"
                         });
                 });
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.Product", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("int");
+                    b.Property<string>("ParentId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -1002,131 +1001,129 @@ namespace OrderManagement.Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = "1",
                             Name = "Milch",
-                            ParentId = 1,
+                            ParentId = "1",
                             Price = 1.25m
                         },
                         new
                         {
-                            Id = 2,
+                            Id = "2",
                             Name = "Butter",
-                            ParentId = 1,
+                            ParentId = "1",
                             Price = 2.3m
                         },
                         new
                         {
-                            Id = 3,
+                            Id = "3",
                             Name = "Salat",
-                            ParentId = 2,
+                            ParentId = "2",
                             Price = 3.6m
                         },
                         new
                         {
-                            Id = 4,
+                            Id = "4",
                             Name = "Pfanne",
-                            ParentId = 3,
+                            ParentId = "3",
                             Price = 10.95m
                         },
                         new
                         {
-                            Id = 5,
+                            Id = "5",
                             Name = "Speck",
-                            ParentId = 4,
+                            ParentId = "4",
                             Price = 2.65m
                         },
                         new
                         {
-                            Id = 6,
+                            Id = "6",
                             Name = "Kaese",
-                            ParentId = 1,
+                            ParentId = "1",
                             Price = 2.50m
                         },
                         new
                         {
-                            Id = 7,
+                            Id = "7",
                             Name = "Landjaeger",
-                            ParentId = 4,
+                            ParentId = "4",
                             Price = 1.20m
                         },
                         new
                         {
-                            Id = 8,
+                            Id = "8",
                             Name = "Löffel",
-                            ParentId = 3,
+                            ParentId = "3",
                             Price = 6.50m
                         },
                         new
                         {
-                            Id = 9,
+                            Id = "9",
                             Name = "Kartoffel",
-                            ParentId = 2,
+                            ParentId = "2",
                             Price = 7.65m
                         },
                         new
                         {
-                            Id = 10,
+                            Id = "10",
                             Name = "Gurke",
-                            ParentId = 2,
+                            ParentId = "2",
                             Price = 1.20m
                         },
                         new
                         {
-                            Id = 11,
+                            Id = "11",
                             Name = "Mascarpone",
-                            ParentId = 1,
+                            ParentId = "1",
                             Price = 1.30m
                         },
                         new
                         {
-                            Id = 12,
+                            Id = "12",
                             Name = "Schinken",
-                            ParentId = 4,
+                            ParentId = "4",
                             Price = 15.20m
                         },
                         new
                         {
-                            Id = 13,
+                            Id = "13",
                             Name = "Salami",
-                            ParentId = 4,
+                            ParentId = "4",
                             Price = 8.90m
                         },
                         new
                         {
-                            Id = 14,
+                            Id = "14",
                             Name = "Zwiebel",
-                            ParentId = 2,
+                            ParentId = "2",
                             Price = 0.20m
                         },
                         new
                         {
-                            Id = 15,
+                            Id = "15",
                             Name = "Majonaise",
-                            ParentId = 1,
+                            ParentId = "1",
                             Price = 3.35m
                         },
                         new
                         {
-                            Id = 16,
+                            Id = "16",
                             Name = "Banane",
-                            ParentId = 2,
+                            ParentId = "2",
                             Price = 1.60m
                         });
                 });
 
             modelBuilder.Entity("OrderManagement.Backend.DataModels.ProductGroup", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("int");
+                    b.Property<string>("ParentId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -1137,56 +1134,56 @@ namespace OrderManagement.Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = "1",
                             Name = "Products"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = "2",
                             Name = "Milch Produkte",
-                            ParentId = 1
+                            ParentId = "1"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = "3",
                             Name = "Fruechte / Gemuese",
-                            ParentId = 1
+                            ParentId = "1"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = "4",
                             Name = "Kuechenartikel",
-                            ParentId = 1
+                            ParentId = "1"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = "5",
                             Name = "Käse",
-                            ParentId = 2
+                            ParentId = "2"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = "6",
                             Name = "Appenzeller",
-                            ParentId = 5
+                            ParentId = "5"
                         },
                         new
                         {
-                            Id = 7,
+                            Id = "7",
                             Name = "Schoggi-Milch",
-                            ParentId = 2
+                            ParentId = "2"
                         },
                         new
                         {
-                            Id = 8,
+                            Id = "8",
                             Name = "Messer",
-                            ParentId = 4
+                            ParentId = "4"
                         },
                         new
                         {
-                            Id = 9,
+                            Id = "9",
                             Name = "Erdbeeren",
-                            ParentId = 3
+                            ParentId = "5"
                         });
                 });
 
@@ -1194,9 +1191,7 @@ namespace OrderManagement.Backend.Migrations
                 {
                     b.HasOne("OrderManagement.Backend.DataModels.Address", "Address")
                         .WithMany("Customers")
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AddressId");
 
                     b.Navigation("Address");
                 });
@@ -1205,9 +1200,7 @@ namespace OrderManagement.Backend.Migrations
                 {
                     b.HasOne("OrderManagement.Backend.DataModels.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
                 });
@@ -1216,15 +1209,11 @@ namespace OrderManagement.Backend.Migrations
                 {
                     b.HasOne("OrderManagement.Backend.DataModels.Order", "Order")
                         .WithMany("Positions")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
 
                     b.HasOne("OrderManagement.Backend.DataModels.Product", "Product")
                         .WithMany("OrderPositions")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Order");
 

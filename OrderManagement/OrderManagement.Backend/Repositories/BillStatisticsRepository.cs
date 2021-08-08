@@ -15,7 +15,7 @@ namespace OrderManagement.Backend.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             throw new NotImplementedException();
         }
@@ -25,11 +25,11 @@ namespace OrderManagement.Backend.Repositories
             var getAllCustomers = @"
     select OrdersWithCustomer.CustomerId as 'OrderId', OrdersWithCustomer.Date, Name, Street, PostCode, City, Country, dbo.GetAmountNet(OrdersWithCustomer.Id) as 'AmountNet', OrdersWithCustomer.Id from
 	    (select Orders.*, Name, Street, PostCode, City, Country from 
-		    Orders 
-		    inner join 
-		    (select Customers.Id, (Name + ' ' + Firstname) as Name, Street, PostCode, City, Country from Customers full 
+		    Orders
+		    inner join
+		    (select Customers.Id, (Name + ' ' + Firstname) as Name, Street, PostCode, City, Country from Customers full
 			    outer join Addresses on Customers.AddressId = Addresses.Id
-		    ) as FullCustomer 
+		    ) as FullCustomer
 		    on
 		    FullCustomer.Id = Orders.CustomerId
 	    ) as OrdersWithCustomer;";
@@ -47,7 +47,7 @@ namespace OrderManagement.Backend.Repositories
                     Country = (string)bs[6],
                     AmountNet = Convert.ToDecimal(bs[7]),
                     AmountGross = (Convert.ToDecimal(bs[7])) * 1.08M, // + mwst
-                    Id = (int)bs[8]
+                    Id = (string)bs[8]
                 },
                 DbContext);
             return customers;
@@ -59,7 +59,7 @@ namespace OrderManagement.Backend.Repositories
             return Get().Where(where);
         }
 
-        public BillStatistic Get(int id)
+        public BillStatistic Get(string id)
         {
             throw new NotImplementedException();
         }

@@ -15,7 +15,7 @@ namespace OrderManagement.Backend.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             throw new NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace OrderManagement.Backend.Repositories
             select * from step2
             order by Year asc, quarter asc;";
 
-            var yearStatistics = RawSqlHelper.ExecuteQuery(query, 
+            var yearStatistics = RawSqlHelper.ExecuteQuery(query,
                 y => new YearStatistic()
                 {
                     Year = y[0].ToString(),
@@ -73,7 +73,7 @@ namespace OrderManagement.Backend.Repositories
             throw new NotImplementedException();
         }
 
-        public YearStatistic Get(int id)
+        public YearStatistic Get(string id)
         {
             throw new NotImplementedException();
         }

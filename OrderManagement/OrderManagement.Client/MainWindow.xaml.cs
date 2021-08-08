@@ -32,7 +32,7 @@ namespace OrderManagement.Client
         {
             dynamic obj = sender;
             Header.Content = obj?.Name?.ToString() ?? "Address";
-            
+
             if (Header.Content.ToString() == "Customer")
                 SetActivePage<Customer>();
             if (Header.Content.ToString() == "Address")
@@ -64,7 +64,7 @@ namespace OrderManagement.Client
             FilterGrid.Visibility = Visibility.Hidden;
             _page = new ActivePage<ProductGroup>(RepositoryCollection.Instance.ProductTreeRepository, true);
             GenericTree.Items.Clear();
-            GenericTree.Items.Add(RepositoryCollection.Instance.ProductTreeRepository.Get(1));
+            GenericTree.Items.Add(RepositoryCollection.Instance.ProductTreeRepository.Get("1"));
         }
 
         private void SetStatisticPageActive()
@@ -148,7 +148,7 @@ namespace OrderManagement.Client
         }
 
         private ActivePage<T> GetActivePage<T>() where T : IHasId => _page as ActivePage<T>;
-        
+
         private IActivePage GetActivePage(Type t)
         {
             if (t == typeof(Customer))
@@ -195,7 +195,7 @@ namespace OrderManagement.Client
         {
             var item = (T)rowItem;
             var repository = GetActivePage<T>().Repository;
-            if (item.Id == 0)
+            if (item.Id == "0")
                 item = repository.Add(item);
             else
                 item = repository.Update(item);
@@ -266,7 +266,7 @@ namespace OrderManagement.Client
                 GenericGrid.Visibility = Visibility.Hidden;
                 Filter.Content = "Search";
             }
-            
+
         }
     }
 }
