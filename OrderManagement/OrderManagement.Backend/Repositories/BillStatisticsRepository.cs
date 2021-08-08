@@ -38,7 +38,7 @@ namespace OrderManagement.Backend.Repositories
                 getAllCustomers,
                 bs => new BillStatistic()
                 {
-                    CustomerId = (int)bs[0],
+                    CustomerId = (string)bs[0],
                     Date = (DateTime)bs[1],
                     CustomerName = (string)bs[2],
                     Street = (string)bs[3],

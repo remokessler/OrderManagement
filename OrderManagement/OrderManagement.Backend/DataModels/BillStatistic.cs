@@ -4,7 +4,7 @@ namespace OrderManagement.Backend.DataModels
 {
     public class BillStatistic : IHasId
     {
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string Street { get; set; }
         public int PostCode { get; set; }
