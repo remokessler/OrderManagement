@@ -416,6 +416,19 @@ namespace OrderManagement.Backend.Migrations
                 ALTER TABLE dbo.Products
                     SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.dw_products_dmsnHistory));"
             );
+            migrationBuilder.Sql(
+                @"create function GetAmountNet
+                (
+                    @OrderId int
+                )
+                returns float
+                as 
+                begin
+	                return (select Sum((Count * Price)) as 'AmountNet' from OrderPositions 
+		                inner join Products on OrderPositions.ProductId = Products.Id
+		                where OrderPositions.OrderId = @OrderId)
+                end;
+                go");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -437,6 +450,8 @@ namespace OrderManagement.Backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Addresses");
+
+            migrationBuilder.Sql("drop function GetAmountNet");
         }
     }
 }

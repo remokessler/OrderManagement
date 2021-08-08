@@ -28,7 +28,7 @@ namespace OrderManagement.Backend.Repositories
 		            year(date) as 'Year',
 		            month(date)/4 + 1 as 'Quarter',
 		            Sum(Products.Price * OrderPositions.Count) as 'TotalSales',
-		            Sum(Orders.Id) as 'SumOrders',
+		            Count(Orders.Id) as 'SumOrders',
 		            Avg(OrderPositions.Count) over (partition by OrderPositions.Id) as 'AvgCountProductsPerOrder',
 		            Avg(Products.Price * OrderPositions.Count) over (partition by Orders.CustomerId) as 'AvgSalesPerCustomer'
 	            from Orders
