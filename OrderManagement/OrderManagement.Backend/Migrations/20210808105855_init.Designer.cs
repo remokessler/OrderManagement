@@ -10,7 +10,7 @@ using OrderManagement.Backend;
 namespace OrderManagement.Backend.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    [Migration("20210808105447_init")]
+    [Migration("20210808105855_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
