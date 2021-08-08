@@ -381,7 +381,7 @@ namespace OrderManagement.Backend.Migrations
                 ALTER TABLE dbo.Addresses
                 ADD
                     valid_from datetime2 GENERATED ALWAYS AS ROW START DEFAULT SYSUTCDATETIME() NOT NULL,
-                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59' ) NOT NULL,
+                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59.9999999' ) NOT NULL,
                     PERIOD FOR SYSTEM_TIME (valid_from, valid_until)
                 ALTER TABLE dbo.Addresses
                     SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.dw_addresses_dmsnHistory));"
@@ -391,7 +391,7 @@ namespace OrderManagement.Backend.Migrations
                 ALTER TABLE dbo.Customers
                 ADD
                     valid_from datetime2 GENERATED ALWAYS AS ROW START DEFAULT SYSUTCDATETIME() NOT NULL,
-                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59' ) NOT NULL,
+                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59.9999999' ) NOT NULL,
                     PERIOD FOR SYSTEM_TIME (valid_from, valid_until)
                 ALTER TABLE dbo.Customers
                     SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.dw_customers_dmsnHistory));"
@@ -401,7 +401,7 @@ namespace OrderManagement.Backend.Migrations
                 ALTER TABLE dbo.ProductGroups
                 ADD
                     valid_from datetime2 GENERATED ALWAYS AS ROW START DEFAULT SYSUTCDATETIME() NOT NULL,
-                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59' ) NOT NULL,
+                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59.9999999' ) NOT NULL,
                     PERIOD FOR SYSTEM_TIME (valid_from, valid_until)
                 ALTER TABLE dbo.ProductGroups
                     SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.dw_product_groups_dmsnHistory));"
@@ -411,7 +411,7 @@ namespace OrderManagement.Backend.Migrations
                 ALTER TABLE dbo.Products
                 ADD
                     valid_from datetime2 GENERATED ALWAYS AS ROW START DEFAULT SYSUTCDATETIME() NOT NULL,
-                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59' ) NOT NULL,
+                    valid_until datetime2 GENERATED ALWAYS AS ROW END DEFAULT CONVERT( DATETIME2, '9999-12-31 23:59:59.9999999' ) NOT NULL,
                     PERIOD FOR SYSTEM_TIME (valid_from, valid_until)
                 ALTER TABLE dbo.Products
                     SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.dw_products_dmsnHistory));"
