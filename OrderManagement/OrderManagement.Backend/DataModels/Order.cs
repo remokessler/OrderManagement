@@ -8,11 +8,11 @@ namespace OrderManagement.Backend.DataModels
     public class Order : IHasId
     {
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required]
         public DateTime Date { get; set; }
         [ForeignKey(nameof(Customer))]
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public Customer Customer { get; set; }
         public IEnumerable<OrderPosition> Positions { get; set; }
 

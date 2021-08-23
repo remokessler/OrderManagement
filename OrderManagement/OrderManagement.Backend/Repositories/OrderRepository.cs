@@ -22,7 +22,7 @@ namespace OrderManagement.Backend.Repositories
             return toAdd;
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             var order = DbContext.Orders.First(o => o.Id == id);
             DbContext.Remove(order);
@@ -39,7 +39,7 @@ namespace OrderManagement.Backend.Repositories
             return DbContext.Orders.Where(where);
         }
 
-        public Order Get(int id)
+        public Order Get(string id)
         {
             return DbContext.Orders.First(o => o.Id == id);
         }

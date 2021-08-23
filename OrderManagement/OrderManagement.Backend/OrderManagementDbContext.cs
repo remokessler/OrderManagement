@@ -26,6 +26,7 @@ namespace OrderManagement.Backend
             .HasForeignKey(x => x.ParentId)
             .IsRequired(false)
             .OnDelete(DeleteBehavior.Restrict);
+
 #if DEMODATA
             new TestData(modelBuilder);
 #endif

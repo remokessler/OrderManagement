@@ -22,7 +22,7 @@ namespace OrderManagement.Backend.Repositories
             return toAdd;
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             var productGroup = DbContext.ProductGroups.First(p => p.Id == id);
             DbContext.Remove(productGroup);
@@ -39,7 +39,7 @@ namespace OrderManagement.Backend.Repositories
             return DbContext.ProductGroups.Where(where);
         }
 
-        public ProductGroup Get(int id)
+        public ProductGroup Get(string id)
         {
             return DbContext.ProductGroups.First(p => p.Id == id);
         }

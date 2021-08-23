@@ -15,7 +15,7 @@ namespace OrderManagement.Backend.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace OrderManagement.Backend.Repositories
 		            year(date) as 'Year',
 		            month(date)/4 + 1 as 'Quarter',
 		            Sum(Products.Price * OrderPositions.Count) as 'TotalSales',
-		            Sum(Orders.Id) as 'SumOrders',
+		            Count(Orders.Id) as 'SumOrders',
 		            Avg(OrderPositions.Count) over (partition by OrderPositions.Id) as 'AvgCountProductsPerOrder',
 		            Avg(Products.Price * OrderPositions.Count) over (partition by Orders.CustomerId) as 'AvgSalesPerCustomer'
 	            from Orders
@@ -52,7 +52,7 @@ namespace OrderManagement.Backend.Repositories
             select * from step2
             order by Year asc, quarter asc;";
 
-            var yearStatistics = RawSqlHelper.ExecuteQuery(query, 
+            var yearStatistics = RawSqlHelper.ExecuteQuery(query,
                 y => new YearStatistic()
                 {
                     Year = y[0].ToString(),
@@ -73,7 +73,7 @@ namespace OrderManagement.Backend.Repositories
             throw new NotImplementedException();
         }
 
-        public YearStatistic Get(int id)
+        public YearStatistic Get(string id)
         {
             throw new NotImplementedException();
         }

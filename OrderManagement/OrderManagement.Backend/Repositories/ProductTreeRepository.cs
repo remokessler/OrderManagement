@@ -15,7 +15,7 @@ namespace OrderManagement.Backend.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             throw new NotImplementedException();
         }
@@ -30,7 +30,7 @@ namespace OrderManagement.Backend.Repositories
             throw new NotImplementedException();
         }
 
-        public ProductGroup Get(int id)
+        public ProductGroup Get(string id)
         {
             // Here's CTE magic. I know id.ToString() ain't optimal. But ey only got so much time.
             var cteString = @";with TreeProductGroups as (
@@ -38,7 +38,7 @@ namespace OrderManagement.Backend.Repositories
                         where ProductGroups.Id = " + id + @"
                     union all
                     select pg.* from ProductGroups pg
-                        inner join 
+                        inner join
                     TreeProductGroups tpg on pg.ParentId = tpg.Id
                 )
                 select * from TreeProductGroups;";

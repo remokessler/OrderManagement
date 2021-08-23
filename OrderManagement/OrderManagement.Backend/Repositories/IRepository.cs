@@ -9,9 +9,9 @@ namespace OrderManagement.Backend.Repositories
         T Add(T obj);
         IEnumerable<T> Get();
         IEnumerable<T> Get(Func<T, bool> where);
-        T Get(int id);
+        T Get(string id);
         T Update(T newObject);
-        void Delete(int id);
+        void Delete(string id);
         string GetTableName() => nameof(T);
         int Count() => Get().Count();
         int Count(Func<T, bool> where) => Get(where).Count();
