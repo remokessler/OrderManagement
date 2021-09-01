@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace OrderManagement.Backend.DataModels
 {
     public class Customer : IHasId
     {
         [RegularExpression(@"^CU(\d)*5$")]
+        [JsonPropertyName("customerNr")]
         [Key]
         public string Id { get; set; }
         [Required]
