@@ -8,7 +8,6 @@ namespace OrderManagement.Backend.DataModels
     public class Customer : IHasId
     {
         [RegularExpression(@"^CU(\d)*5$")]
-        [JsonPropertyName("customerNr")]
         [Key]
         public string Id { get; set; }
         [Required]

@@ -1,5 +1,6 @@
 ﻿using OrderManagement.Backend.DataModels;
 using OrderManagement.Backend.Repositories;
+using OrderManagement.Backend.Serializer;
 
 namespace OrderManagement.Backend
 {
@@ -23,7 +24,7 @@ namespace OrderManagement.Backend
         public RepositoryCollection(OrderManagementDbContext dbContext = null)
         {
             // AKA: Bascily StartUp
-            
+
             _dbContext = new OrderManagementDbContextFactory().CreateDbContext(null);
             if (dbContext != null)
                 _dbContext = dbContext;
@@ -37,6 +38,7 @@ namespace OrderManagement.Backend
             ProductTreeRepository = new ProductTreeRepository(_dbContext);
             BillStatisticRepository = new BillStatisticsRepository(_dbContext);
             YearStatisticRepository = new YearStatisticRepository(_dbContext);
+            var serial = new Json<Customer>(CustomerRepository);
         }
     }
 }
