@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace OrderManagement.Backend.Repositories
 {
@@ -32,17 +33,17 @@ namespace OrderManagement.Backend.Repositories
 
         public IEnumerable<Customer> Get()
         {
-            return DbContext.Customers.Where(c => true);
+            return DbContext.Customers.Include(c => c.Address).Where(c => true);
         }
 
         public IEnumerable<Customer> Get(Func<Customer, bool> where)
         {
-            return DbContext.Customers.Where(where);
+            return DbContext.Customers.Include(c => c.Address).Where(where);
         }
 
         public Customer Get(string id)
         {
-            return DbContext.Customers.First(c => c.Id == id);
+            return DbContext.Customers.Include(c => c.Address).First(c => c.Id == id);
         }
 
         public Customer Update(Customer newObject)

@@ -1,7 +1,10 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using AutoMapper;
+using Microsoft.VisualBasic;
 using OrderManagement.Backend.DataModels;
 using OrderManagement.Backend.Repositories;
 using OrderManagement.Backend.Helpers;
@@ -27,19 +30,11 @@ namespace OrderManagement.Backend.Serializer
                 Converters = { new CustomerConverter() }
             };
 
-            var entities = repository.Get().Select(entity => mapper.Map<CustomerDTO>(entity)).ToList();
-
-            json = JsonSerializer.Serialize(entities, options);
-
-            //json = JsonConvert.SerializeObject(entities);
-            //if (list.GetType() == typeof(Customer))
-            //{
-            //    foreach(var entity in dbContext.Customers)
-            //    {
-            //        //json += serializer.Serialize(entity, options);
-            //        json += JsonConvert.SerializeObject(entity);
-            //    }
-            //}
+            if (typeof(T) == typeof(Customer))
+            {
+                var entities = repository.Get().Select(entity => mapper.Map<CustomerDTO>(entity)).ToList();
+                json = JsonSerializer.Serialize(entities, options);
+            }
 
         }
     }

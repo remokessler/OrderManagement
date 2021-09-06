@@ -1,6 +1,8 @@
-﻿using OrderManagement.Backend.DataModels;
+﻿using AutoMapper.QueryableExtensions;
+using OrderManagement.Backend.DataModels;
 using OrderManagement.Backend.Repositories;
 using OrderManagement.Backend.Serializer;
+using OrderManagement.Backend.Serializer.DTOs;
 
 namespace OrderManagement.Backend
 {
