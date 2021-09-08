@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/OrderManagement/OrderManagement.Backend/Migrations/20210823141708_OrderManagement.cs
+/OrderManagement/OrderManagement.Backend/Migrations/20210823141708_OrderManagement.Designer.cs

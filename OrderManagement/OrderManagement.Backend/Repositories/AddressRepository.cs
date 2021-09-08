@@ -48,6 +48,9 @@ namespace OrderManagement.Backend.Repositories
 
         public Address Update(Address newObject)
         {
+            if (newObject == null || newObject.Id == null)
+                return newObject;
+
             var oldAddress = DbContext.Addresses.First(a => a.Id == newObject.Id);
             oldAddress.Country = newObject.Country;
             oldAddress.City = newObject.City;

@@ -6,7 +6,7 @@
         xmlns:fa="clr-namespace:Meziantou.WpfFontAwesome;assembly=Meziantou.WpfFontAwesome"
         mc:Ignorable="d"
         xmlns:local="clr-namespace:OrderManagement.Backend.DataModels;assembly=OrderManagement.Backend"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#444444">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"></ColumnDefinition>
@@ -82,7 +82,8 @@
                 </Grid.ColumnDefinitions>
                 <Button Name="DeleteButton" Background="DarkRed" Margin="0, 16, 8, 0" Click="DeleteClicked">Delete</Button>
                 <Button Name="SaveButton" Grid.Column="1" Background="DarkGreen" Margin="8, 16, 0, 0">Save</Button>
-                <Button Visibility="Hidden" Click="Filter_Click" Name="Filter" Grid.ColumnSpan="2" Background="LightBlue" Margin="0, 16, 0, 0">Filter</Button>
+                <Button Visibility="Hidden" Click="Filter_Click" Name="Filter" Grid.Column="0" Grid.ColumnSpan="2" Background="LightBlue" Margin="0, 16, 8, 0">Filter</Button>
+                <Button Visibility="Hidden" Click="ResetFilter_Click" Name="ResetFilter" Grid.Column="1" Background="Orange" Margin="8, 16, 0, 0">Reset Filter</Button>
             </Grid>
         </Grid>
     </Grid>
