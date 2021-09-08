@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace OrderManagement.Client
 {
@@ -51,6 +52,8 @@ namespace OrderManagement.Client
                 SetStatisticPageActive();
             if (Header.Content.ToString() == "YearStats")
                 SetYearStatisticPageActive();
+
+            HighlightSelectedPageInMenu();
         }
 
         private void SetTreePageActive()
@@ -62,6 +65,7 @@ namespace OrderManagement.Client
             SaveButton.Visibility = Visibility.Hidden;
             Filter.Visibility = Visibility.Hidden;
             FilterGrid.Visibility = Visibility.Hidden;
+            GenericGrid.CanUserAddRows = false;
             _page = new ActivePage<ProductGroup>(RepositoryCollection.Instance.ProductTreeRepository, true);
             GenericTree.Items.Clear();
             GenericTree.Items.Add(RepositoryCollection.Instance.ProductTreeRepository.Get("1"));
@@ -76,6 +80,7 @@ namespace OrderManagement.Client
             SaveButton.Visibility = Visibility.Hidden;
             Filter.Visibility = Visibility.Visible;
             FilterGrid.Visibility = Visibility.Hidden;
+            GenericGrid.CanUserAddRows = false;
             var page = new ActivePage<BillStatistic>(RepositoryCollection.Instance.BillStatisticRepository);
             _page = page;
             GenericGrid.DataContext = page.ObservableCollection;
@@ -120,6 +125,7 @@ namespace OrderManagement.Client
                 };
                 GenericGrid.Columns.Add(column);
             }
+            GenericGrid.CanUserAddRows = false;
         }
 
         private object CreateStatisticObject(YearStatistic[] statistics, string propName, Func<YearStatistic, string> setProp)
@@ -143,6 +149,7 @@ namespace OrderManagement.Client
             SaveButton.Visibility = Visibility.Visible;
             Filter.Visibility = Visibility.Hidden;
             FilterGrid.Visibility = Visibility.Hidden;
+            GenericGrid.CanUserAddRows = true;
             _page = GetActivePage(typeof(T));
             GenericGrid.DataContext = GetActivePage<T>().ObservableCollection;
         }
@@ -194,11 +201,21 @@ namespace OrderManagement.Client
         private T UpdateOrInsert<T>(object rowItem) where T : IHasId
         {
             var item = (T)rowItem;
-            var repository = GetActivePage<T>().Repository;
-            if (item.Id == "0")
-                item = repository.Add(item);
-            else
-                item = repository.Update(item);
+            try
+            {
+                var repository = GetActivePage<T>().Repository;
+                if (item.Id == "0")
+                    item = repository.Add(item);
+                else
+                    item = repository.Update(item);
+                if (item == null || item.Id == null)
+                    MessageBox.Show("The dataset could not be updated due to missing information.", "Missing data", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+            }
+            catch
+            {
+                MessageBox.Show("An error occurred while saving.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             return item;
         }
 
@@ -244,6 +261,8 @@ namespace OrderManagement.Client
         {
             if (FilterGrid.Visibility == Visibility.Visible)
             {
+                ResetFilter.Visibility = Visibility.Hidden;
+                Filter.SetValue(Grid.ColumnSpanProperty, 2);
                 FilterGrid.Visibility = Visibility.Hidden;
                 GenericGrid.Visibility = Visibility.Visible;
                 Filter.Content = "Filter";
@@ -262,11 +281,64 @@ namespace OrderManagement.Client
             }
             else
             {
+                ResetFilter.Visibility = Visibility.Visible;
+                Filter.SetValue(Grid.ColumnSpanProperty, 1);
                 FilterGrid.Visibility = Visibility.Visible;
                 GenericGrid.Visibility = Visibility.Hidden;
                 Filter.Content = "Search";
             }
-
         }
+
+        private void ResetFilter_Click(object sender, RoutedEventArgs e)
+        {
+            FilterCustomerNumber.Text = string.Empty;
+            FilterFullName.Text = string.Empty;
+            FilterBillDate.Text = string.Empty;
+            FilterBillId.Text = string.Empty;
+            FilterAmountNet.Text = string.Empty;
+            FilterAmountGross.Text = string.Empty;
+            FilterStreet.Text = string.Empty;
+            FilterPostCode.Text = string.Empty;
+            FilterCity.Text = string.Empty;
+            FilterCountry.Text = string.Empty;
+        }
+
+        private void HighlightSelectedPageInMenu()
+        {
+            ResetSelectedPageInMenu();
+
+            if (Header.Content.ToString() == "Customer")
+                Customer.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "Address")
+                Address.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "Product")
+                Product.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "ProductGroup")
+                ProductGroup.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "Order")
+                Order.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "OrderPosition")
+                OrderPosition.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "ProductTree")
+                ProductTree.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "BillStats")
+                BillStats.Background = Brushes.DarkGray;
+            else if (Header.Content.ToString() == "YearStats")
+                YearStats.Background = Brushes.DarkGray;
+        }
+
+        private void ResetSelectedPageInMenu()
+        {
+            Customer.Background = Brushes.Transparent;
+            Address.Background = Brushes.Transparent;
+            Product.Background = Brushes.Transparent;
+            ProductGroup.Background = Brushes.Transparent;
+            Order.Background = Brushes.Transparent;
+            OrderPosition.Background = Brushes.Transparent;
+            ProductTree.Background = Brushes.Transparent;
+            BillStats.Background = Brushes.Transparent;
+            YearStats.Background = Brushes.Transparent;
+        }
+
     }
 }

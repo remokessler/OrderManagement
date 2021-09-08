@@ -46,6 +46,9 @@ namespace OrderManagement.Backend.Repositories
 
         public Order Update(Order newObject)
         {
+            if (newObject == null || newObject.Id == null)
+                return newObject;
+
             var oldOrder = DbContext.Orders.First(o => o.Id == newObject.Id);
             oldOrder.CustomerId = newObject.CustomerId;
             oldOrder.Customer = DbContext.Customers.First(c => c.Id == newObject.CustomerId.ToString());

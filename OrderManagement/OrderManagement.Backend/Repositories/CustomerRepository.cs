@@ -48,6 +48,9 @@ namespace OrderManagement.Backend.Repositories
 
         public Customer Update(Customer newObject)
         {
+            if (newObject == null || newObject.Id == null)
+                return newObject;
+
             var oldCustomer = DbContext.Customers.First(c => c.Id == newObject.Id);
             oldCustomer.Firstname = newObject.Firstname;
             oldCustomer.Name = newObject.Name;

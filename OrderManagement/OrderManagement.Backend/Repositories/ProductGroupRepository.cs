@@ -46,6 +46,11 @@ namespace OrderManagement.Backend.Repositories
 
         public ProductGroup Update(ProductGroup newObject)
         {
+            if (newObject == null || newObject.Id == null)
+            {
+                return newObject;
+            }
+
             var oldProductGroup = DbContext.ProductGroups.First(p => p.Id == newObject.Id);
             oldProductGroup.Name = newObject.Name;
             oldProductGroup.ParentId = newObject.ParentId;

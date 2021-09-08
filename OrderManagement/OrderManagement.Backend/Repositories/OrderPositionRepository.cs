@@ -48,6 +48,9 @@ namespace OrderManagement.Backend.Repositories
 
         public OrderPosition Update(OrderPosition newObject)
         {
+            if (newObject == null || newObject.Id == null)
+                return newObject;
+
             var oldOrderPosition = DbContext.OrderPositions.First(o => o.Id == newObject.Id);
             oldOrderPosition.OrderId = newObject.OrderId;
             oldOrderPosition.Order = DbContext.Orders.First(o => o.Id == newObject.OrderId);
