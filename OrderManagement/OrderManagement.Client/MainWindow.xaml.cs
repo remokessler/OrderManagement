@@ -363,54 +363,23 @@ namespace OrderManagement.Client
 
         private void OnExportXML(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(false);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnImportXML(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(true);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnExportJson(object sender, MouseButtonEventArgs e)
         {
             new Json<Customer>(RepositoryCollection.Instance.CustomerRepository, true);
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnImportJson(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(true);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
-        private string GetFilePathForImportExport(bool isImport)
-        {
-            if (isImport)
-            {
-                //TODO FileAuswahl
-            }
-            else //Export
-            {
-                //using (var fbd = new FolderBrowserDialog())
-                //{
-                //    DialogResult result = fbd.ShowDialog();
-
-                //    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                //    {
-                //        return fbd.SelectedPath;
-                //    }
-                //}
-            }
-
-            return string.Empty;
-        }
-
     }
 }
