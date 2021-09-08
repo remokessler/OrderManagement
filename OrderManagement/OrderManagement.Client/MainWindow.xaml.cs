@@ -54,6 +54,21 @@ namespace OrderManagement.Client
                 SetYearStatisticPageActive();
 
             HighlightSelectedPageInMenu();
+            CheckShowImportExportVisible(Header.Content.ToString());
+        }
+
+        private void CheckShowImportExportVisible(string activePage)
+        {
+            switch (activePage)
+            {
+                case "Address":
+                case "Customer":
+                    ImportExportButtons.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    ImportExportButtons.Visibility = Visibility.Collapsed;
+                    break;
+            }
         }
 
         private void SetTreePageActive()
@@ -65,6 +80,7 @@ namespace OrderManagement.Client
             SaveButton.Visibility = Visibility.Hidden;
             Filter.Visibility = Visibility.Hidden;
             FilterGrid.Visibility = Visibility.Hidden;
+            ResetFilter.Visibility = Visibility.Hidden;
             GenericGrid.CanUserAddRows = false;
             _page = new ActivePage<ProductGroup>(RepositoryCollection.Instance.ProductTreeRepository, true);
             GenericTree.Items.Clear();
@@ -80,6 +96,7 @@ namespace OrderManagement.Client
             SaveButton.Visibility = Visibility.Hidden;
             Filter.Visibility = Visibility.Visible;
             FilterGrid.Visibility = Visibility.Hidden;
+            ResetFilter.Visibility = Visibility.Hidden;
             GenericGrid.CanUserAddRows = false;
             var page = new ActivePage<BillStatistic>(RepositoryCollection.Instance.BillStatisticRepository);
             _page = page;
@@ -94,6 +111,7 @@ namespace OrderManagement.Client
             SaveButton.Visibility = Visibility.Hidden;
             Filter.Visibility = Visibility.Hidden;
             FilterGrid.Visibility = Visibility.Hidden;
+            ResetFilter.Visibility = Visibility.Hidden;
             var page = new ActivePage<YearStatistic>(RepositoryCollection.Instance.YearStatisticRepository);
             _page = page;
             var statistics = RepositoryCollection.Instance.YearStatisticRepository.Get().ToArray();
@@ -149,6 +167,7 @@ namespace OrderManagement.Client
             SaveButton.Visibility = Visibility.Visible;
             Filter.Visibility = Visibility.Hidden;
             FilterGrid.Visibility = Visibility.Hidden;
+            ResetFilter.Visibility = Visibility.Hidden;
             GenericGrid.CanUserAddRows = true;
             _page = GetActivePage(typeof(T));
             GenericGrid.DataContext = GetActivePage<T>().ObservableCollection;
@@ -338,6 +357,60 @@ namespace OrderManagement.Client
             ProductTree.Background = Brushes.Transparent;
             BillStats.Background = Brushes.Transparent;
             YearStats.Background = Brushes.Transparent;
+        }
+
+        private void OnExportXML(object sender, MouseButtonEventArgs e)
+        {
+            string path = GetFilePathForImportExport(false);
+            if (!string.IsNullOrEmpty(path)){
+                //TODO Marco
+            }
+        }
+
+        private void OnImportXML(object sender, MouseButtonEventArgs e)
+        {
+            string path = GetFilePathForImportExport(true);
+            if (!string.IsNullOrEmpty(path)){
+                //TODO Marco
+            }
+        }
+
+        private void OnExportJson(object sender, MouseButtonEventArgs e)
+        {
+            string path = GetFilePathForImportExport(false);
+            if (!string.IsNullOrEmpty(path)){
+                //TODO Marco
+            }
+        }
+
+        private void OnImportJson(object sender, MouseButtonEventArgs e)
+        {
+            string path = GetFilePathForImportExport(true);
+            if (!string.IsNullOrEmpty(path)){
+                //TODO Marco
+            }
+        }
+
+        private string GetFilePathForImportExport(bool isImport)
+        {
+            if (isImport)
+            {
+                //TODO FileAuswahl
+            }
+            else //Export
+            {
+                //using (var fbd = new FolderBrowserDialog())
+                //{
+                //    DialogResult result = fbd.ShowDialog();
+
+                //    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                //    {
+                //        return fbd.SelectedPath;
+                //    }
+                //}
+            }
+
+            return string.Empty;
         }
 
     }
