@@ -10,8 +10,8 @@ using OrderManagement.Backend;
 namespace OrderManagement.Backend.Migrations
 {
     [DbContext(typeof(OrderManagementDbContext))]
-    [Migration("20210907165501_testSerializer")]
-    partial class testSerializer
+    [Migration("20210908164522_TestSerializer")]
+    partial class TestSerializer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -253,8 +253,10 @@ namespace OrderManagement.Backend.Migrations
                             Id = "1",
                             AddressId = "1",
                             Firstname = "Alfred",
+                            Mail = "a.k@test.ch",
                             Name = "Koller",
-                            Password = "test1234"
+                            Password = "test1234",
+                            Webpage = "www.ak.ch"
                         },
                         new
                         {

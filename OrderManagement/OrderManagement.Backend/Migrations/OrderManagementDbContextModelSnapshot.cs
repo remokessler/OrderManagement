@@ -251,8 +251,10 @@ namespace OrderManagement.Backend.Migrations
                             Id = "1",
                             AddressId = "1",
                             Firstname = "Alfred",
+                            Mail = "a.k@test.ch",
                             Name = "Koller",
-                            Password = "test1234"
+                            Password = "test1234",
+                            Webpage = "www.ak.ch"
                         },
                         new
                         {

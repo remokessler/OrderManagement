@@ -47,7 +47,7 @@ namespace OrderManagement.Backend
             }
 
             #region Customers
-            customer.Add(new Customer() { Id = "1", AddressId = "1", Firstname = "Alfred", Name = "Koller", Password = "test1234"});
+            customer.Add(new Customer() { Id = "1", AddressId = "1", Firstname = "Alfred", Name = "Koller", Password = "test1234", Mail = "a.k@test.ch", Webpage = "www.ak.ch"});
             customer.Add(new Customer() { Id = "2", AddressId = "2", Firstname = "Karl", Name = "Meier" });
             customer.Add(new Customer() { Id = "3", AddressId = "3", Firstname = "Marco", Name = "Ebneter" });
             customer.Add(new Customer() { Id = "4", AddressId = "4", Firstname = "Mike", Name = "Faessler" });
