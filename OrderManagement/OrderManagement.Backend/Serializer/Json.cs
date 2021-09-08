@@ -14,15 +14,36 @@ namespace OrderManagement.Backend.Serializer
 {
     public class Json<T>
     {
-        private readonly string json;
+        private readonly IRepository<T> _repository;
+        private readonly Mapper _mapper;
 
-        public Json(IRepository<T> repository)
+
+        public Json(IRepository<T> repository, bool write)
         {
-            var mapper = new Mapper(new MapperConfiguration(cfg =>
+            _repository = repository;
+
+            _mapper = new Mapper(new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new CustomerMapper());
             }));
 
+            if (write == true)
+            {
+                writeJson();
+            }
+            else
+            {
+                readJson();
+            }
+        }
+
+        private void readJson()
+        {
+
+        }
+
+        private void writeJson()
+        {
             var options = new JsonSerializerOptions()
             {
                 WriteIndented = true,
@@ -30,11 +51,10 @@ namespace OrderManagement.Backend.Serializer
 
             if (typeof(T) == typeof(Customer))
             {
-                var entities = repository.Get().Select(entity => mapper.Map<CustomerDTO>(entity)).ToList();
-                json = JsonSerializer.Serialize(entities, options);
-                File.WriteAllText("Customer.json", json);
+                var entities = _repository.Get().Select(entity => _mapper.Map<CustomerDTO>(entity)).ToList();
+                var json = JsonSerializer.Serialize(entities, options);
+                File.WriteAllText(Directory.GetCurrentDirectory() + "../../../../../Customer.json", json);
             }
-
         }
     }
 }

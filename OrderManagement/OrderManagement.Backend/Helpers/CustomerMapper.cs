@@ -22,7 +22,13 @@ namespace OrderManagement.Backend.Helpers
                 .ForMember(dest => dest.password, opt => opt.MapFrom(src => Encoding.UTF8.GetBytes(src.Password)));
 
             CreateMap<CustomerDTO, Customer>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.customerNr));
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.customerNr))
+                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.name.Split(' ', StringSplitOptions.None)))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name.Split(' ', StringSplitOptions.None)))
+                .ForMember(dest => dest.Mail, opt => opt.MapFrom(src => src.email))
+                .ForMember(dest => dest.Webpage, opt => opt.MapFrom(src => src.website))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.address))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => Encoding.UTF8.GetString(src.password)));
         }
     }
 }
