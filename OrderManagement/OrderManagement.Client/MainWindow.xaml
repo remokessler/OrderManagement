@@ -6,24 +6,34 @@
         xmlns:fa="clr-namespace:Meziantou.WpfFontAwesome;assembly=Meziantou.WpfFontAwesome"
         mc:Ignorable="d"
         xmlns:local="clr-namespace:OrderManagement.Backend.DataModels;assembly=OrderManagement.Backend"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#444444">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Background="#2b2b2b">
-            <fa:FontAwesomeIcon Name="Product" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Box" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="ProductGroup" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Boxes" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="Order" Margin="0, 8" VerticalAlignment="Top" SolidIcon="FolderOpen" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="OrderPosition" Margin="0, 8" VerticalAlignment="Top" SolidIcon="ListUl" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="Customer" Margin="0, 8" VerticalAlignment="Top" SolidIcon="User" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="Address" Margin="0, 8" VerticalAlignment="Top" SolidIcon="AddressCard" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="ProductTree" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Tree" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="BillStats" Margin="0, 8" VerticalAlignment="Top" SolidIcon="MoneyBillAlt" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
-            <fa:FontAwesomeIcon Name="YearStats" Margin="0, 8" VerticalAlignment="Top" SolidIcon="CalendarAlt" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="ImportExportButtons" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+            <fa:FontAwesomeIcon ToolTip="Import XML" Name="ImportXML" Margin="8,0" VerticalAlignment="Top" SolidIcon="FileExport" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnExportXML"/>
+            <fa:FontAwesomeIcon ToolTip="Export XML" Name="ExportXML" Margin="8,0" VerticalAlignment="Top" SolidIcon="FileImport" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnImportXML"/>
+            <fa:FontAwesomeIcon ToolTip="Import JSON" Name="ImportJson" Margin="8,0" VerticalAlignment="Top" SolidIcon="Download" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnExportJson"/>
+            <fa:FontAwesomeIcon ToolTip="Export JSON" Name="ExportJson" Margin="8,0" VerticalAlignment="Top" SolidIcon="Upload" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnImportJson"/>
         </StackPanel>
-        <Grid Grid.Column="1" Margin="16">
+        <StackPanel Background="#2b2b2b" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <fa:FontAwesomeIcon ToolTip="Product" Name="Product" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Box" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Productgroup" Name="ProductGroup" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Boxes" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Order" Name="Order" Margin="0, 8" VerticalAlignment="Top" SolidIcon="FolderOpen" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Order Position" Name="OrderPosition" Margin="0, 8" VerticalAlignment="Top" SolidIcon="ListUl" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Customer" Name="Customer" Margin="0, 8" VerticalAlignment="Top" SolidIcon="User" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Address" Name="Address" Margin="0, 8" VerticalAlignment="Top" SolidIcon="AddressCard" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Product-Tree" Name="ProductTree" Margin="0, 8" VerticalAlignment="Top" SolidIcon="Tree" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Bill Stats" Name="BillStats" Margin="0, 8" VerticalAlignment="Top" SolidIcon="MoneyBillAlt" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+            <fa:FontAwesomeIcon ToolTip="Year Stats" Name="YearStats" Margin="0, 8" VerticalAlignment="Top" SolidIcon="CalendarAlt" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnSwitchView"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="1" Margin="16">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>

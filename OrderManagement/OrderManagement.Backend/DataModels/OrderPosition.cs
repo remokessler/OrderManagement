@@ -17,6 +17,6 @@ namespace OrderManagement.Backend.DataModels
         public string OrderId { get; set; }
         public Order Order { get; set; }
 
-        public override string ToString() => $"{OrderId}; {Position}; {Count} x {Product.Name}";
+        public override string ToString() => $"{OrderId}; {Position}; {Count} x {Product?.Name}";
     }
 }
