@@ -201,21 +201,21 @@ namespace OrderManagement.Client
         private T UpdateOrInsert<T>(object rowItem) where T : IHasId
         {
             var item = (T)rowItem;
-            try
-            {
+            //try
+            //{
                 var repository = GetActivePage<T>().Repository;
-                if (item.Id == "0")
+                if (item.Id == null)
                     item = repository.Add(item);
                 else
                     item = repository.Update(item);
-                if (item == null || item.Id == null)
-                    MessageBox.Show("The dataset could not be updated due to missing information.", "Missing data", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //if (item == null || item.Id == null)
+            //    MessageBox.Show("The dataset could not be updated due to missing information.", "Missing data", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-            }
-            catch
-            {
-                MessageBox.Show("An error occurred while saving.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("An error occurred while saving.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
             return item;
         }
 

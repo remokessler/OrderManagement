@@ -28,12 +28,12 @@ namespace OrderManagement.Backend.Serializer
             {
                 var entities = repository.Get().Select(entity => mapper.Map<CustomerDTO>(entity)).ToList();
                 var writer = new StringWriter();
-                var serializer = new XmlSerializer(typeof(List<CustomerDTO>));
+                var root = new XmlRootAttribute("Kunden");
+                var serializer = new XmlSerializer(typeof(List<CustomerDTO>), root);
                 serializer.Serialize(writer, entities);
                 xml = writer.ToString();
                 File.WriteAllText("Customer.xml", xml);
             }
-
         }
     }
 }
