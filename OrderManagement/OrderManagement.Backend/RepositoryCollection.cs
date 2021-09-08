@@ -41,6 +41,7 @@ namespace OrderManagement.Backend
             BillStatisticRepository = new BillStatisticsRepository(_dbContext);
             YearStatisticRepository = new YearStatisticRepository(_dbContext);
             var serial = new Json<Customer>(CustomerRepository);
+            var serial2 = new Xml<Customer>(CustomerRepository);
         }
     }
 }

@@ -1,38 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 using AutoMapper;
-using Microsoft.VisualBasic;
 using OrderManagement.Backend.DataModels;
-using OrderManagement.Backend.Repositories;
 using OrderManagement.Backend.Helpers;
+using OrderManagement.Backend.Repositories;
 using OrderManagement.Backend.Serializer.DTOs;
 
 namespace OrderManagement.Backend.Serializer
 {
-    public class Json<T>
+    public class Xml<T>
     {
-        private readonly string json;
+        private readonly string xml;
 
-        public Json(IRepository<T> repository)
+        public Xml(IRepository<T> repository)
         {
             var mapper = new Mapper(new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new CustomerMapper());
             }));
 
-            var options = new JsonSerializerOptions()
-            {
-                WriteIndented = true,
-            };
-
             if (typeof(T) == typeof(Customer))
             {
                 var entities = repository.Get().Select(entity => mapper.Map<CustomerDTO>(entity)).ToList();
-                json = JsonSerializer.Serialize(entities, options);
-                File.WriteAllText("Customer.json", json);
+                var writer = new StringWriter();
+                var serializer = new XmlSerializer(typeof(List<CustomerDTO>));
+                serializer.Serialize(writer, entities);
+                xml = writer.ToString();
+                File.WriteAllText("Customer.xml", xml);
             }
 
         }

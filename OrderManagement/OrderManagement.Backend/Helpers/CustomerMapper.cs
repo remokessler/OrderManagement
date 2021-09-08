@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using AutoMapper;
@@ -17,7 +18,8 @@ namespace OrderManagement.Backend.Helpers
                 .ForMember(dest => dest.name, opt => opt.MapFrom(src => src.Firstname + " " + src.Name))
                 .ForMember(dest => dest.email, opt => opt.MapFrom(src => src.Mail))
                 .ForMember(dest => dest.website, opt => opt.MapFrom(src => src.Webpage))
-                .ForMember(dest => dest.address, opt => opt.MapFrom(src => src.Address));
+                .ForMember(dest => dest.address, opt => opt.MapFrom(src => src.Address))
+                .ForMember(dest => dest.password, opt => opt.MapFrom(src => Encoding.UTF8.GetBytes(src.Password)));
 
             CreateMap<CustomerDTO, Customer>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.customerNr));

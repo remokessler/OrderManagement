@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Principal;
-using System.Text;
+﻿using System.Xml.Serialization;
 using OrderManagement.Backend.DataModels;
 
 namespace OrderManagement.Backend.Serializer.DTOs
 {
+    [XmlRoot("Kunden", Namespace = "")]
     public class CustomerDTO
     {
         public string customerNr { get; set; }
@@ -13,6 +11,6 @@ namespace OrderManagement.Backend.Serializer.DTOs
         public Address address { get; set; }
         public string email { get; set; }
         public string website { get; set; }
-        public string password { get; set; }
+        public byte[] password { get; set; }
     }
 }
