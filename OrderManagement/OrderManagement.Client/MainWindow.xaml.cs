@@ -11,6 +11,8 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using OrderManagement.Backend.Repositories;
+using OrderManagement.Backend.Serializer;
 
 namespace OrderManagement.Client
 {
@@ -377,10 +379,7 @@ namespace OrderManagement.Client
 
         private void OnExportJson(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(false);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            new Json<Customer>(RepositoryCollection.Instance.CustomerRepository, true);
         }
 
         private void OnImportJson(object sender, MouseButtonEventArgs e)

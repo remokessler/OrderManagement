@@ -40,7 +40,6 @@ namespace OrderManagement.Backend
             ProductTreeRepository = new ProductTreeRepository(_dbContext);
             BillStatisticRepository = new BillStatisticsRepository(_dbContext);
             YearStatisticRepository = new YearStatisticRepository(_dbContext);
-            var serial = new Json<Customer>(CustomerRepository, true);
             var serial2 = new Xml<Customer>(CustomerRepository);
         }
     }
