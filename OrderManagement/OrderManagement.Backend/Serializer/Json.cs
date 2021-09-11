@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using OrderManagement.Backend.DataModels;
 using OrderManagement.Backend.Repositories;
@@ -39,7 +40,13 @@ namespace OrderManagement.Backend.Serializer
 
         private void readJson()
         {
-
+            var json = File.ReadAllText(Directory.GetCurrentDirectory() + "../../../../../Customer.json");
+            var obj = JsonSerializer.Deserialize<List<CustomerDTO>>(json);
+            var lst = obj.Select(entity => _mapper.Map<T>(entity));
+            foreach (var entity in lst)
+            {
+                _repository.Update(entity);
+            }
         }
 
         private void writeJson()

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Kunden xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Kunde CustomerNr="1">
+    <name>Alfred Marco</name>
+    <email>a.k@test.ch</email>
+    <website>www.ak.ch</website>
+    <password>dGVzdDEyMzQ=</password>
+  </Kunde>
+  <Kunde CustomerNr="10">
+    <name>Tobias Wirth</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="11">
+    <name>Roland Zumstein</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="12">
+    <name>Konrad Mazenauer</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="13">
+    <name>Patrick Stadler</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="14">
+    <name>Natascha Luechinger</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="15">
+    <name>Stefanie Staub</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="16">
+    <name>Emanuel Steingruber</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="17">
+    <name>Nicole Fritsche</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="18">
+    <name>Karin Geher</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="19">
+    <name>Ruedi Wuerth</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="2">
+    <name>Karl Meier</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="20">
+    <name>Tamara Ebneter</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="21">
+    <name>Antonia Faessler</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="22">
+    <name>Alejandro Faessler</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="23">
+    <name>Pascal Koller</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="3">
+    <name>Marco Ebneter</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="4">
+    <name>Mike Faessler</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="5">
+    <name>Remo Kessler</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="6">
+    <name>Tim Manser</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="7">
+    <name>Martin Streule</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="8">
+    <name>Michael Messmer</name>
+    <password />
+  </Kunde>
+  <Kunde CustomerNr="9">
+    <name>Berta Keiser</name>
+    <password />
+  </Kunde>
+</Kunden>

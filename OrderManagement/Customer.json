@@ -1,13 +1,13 @@
 [
   {
     "customerNr": "1",
-    "name": "Alfred Koller",
+    "name": "Alfred Manser",
     "address": {
       "street": "Gossauerstrasse 15",
       "postalCode": 9200
     },
     "email": "a.k@test.ch",
-    "website": "www.ak.ch",
+    "website": "www.am.ch",
     "password": "dGVzdDEyMzQ="
   },
   {

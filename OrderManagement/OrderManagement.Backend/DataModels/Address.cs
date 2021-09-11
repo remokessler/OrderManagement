@@ -16,7 +16,6 @@ namespace OrderManagement.Backend.DataModels
         [JsonPropertyName("street")]
         [XmlElement("street")]
         public string Street { get; set; }
-        [Required]
         [JsonIgnore]
         [XmlIgnore]
         public string City { get; set; }
@@ -24,7 +23,6 @@ namespace OrderManagement.Backend.DataModels
         [JsonPropertyName("postalCode")]
         [XmlElement("postalCode")]
         public int PostCode { get; set; }
-        [Required]
         [JsonIgnore]
         [XmlIgnore]
         public string Country { get; set; }

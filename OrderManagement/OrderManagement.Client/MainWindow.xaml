@@ -17,8 +17,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel x:Name="ImportExportButtons" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
-            <fa:FontAwesomeIcon ToolTip="Import XML" Name="ImportXML" Margin="8,0" VerticalAlignment="Top" SolidIcon="FileExport" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnImportXML"/>
-            <fa:FontAwesomeIcon ToolTip="Export XML" Name="ExportXML" Margin="8,0" VerticalAlignment="Top" SolidIcon="FileImport" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnExportXML"/>
+            <fa:FontAwesomeIcon ToolTip="Export XML" Name="ExportXML" Margin="8,0" VerticalAlignment="Top" SolidIcon="FileExport" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnExportXML"/>
+            <fa:FontAwesomeIcon ToolTip="Import XML" Name="ImportXML" Margin="8,0" VerticalAlignment="Top" SolidIcon="FileImport" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnImportXML"/>
             <fa:FontAwesomeIcon ToolTip="Import JSON" Name="ImportJson" Margin="8,0" VerticalAlignment="Top" SolidIcon="Download" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnImportJson"/>
             <fa:FontAwesomeIcon ToolTip="Export JSON" Name="ExportJson" Margin="8,0" VerticalAlignment="Top" SolidIcon="Upload" FontSize="20" Foreground="LightSkyBlue" MouseDown="OnExportJson"/>
         </StackPanel>

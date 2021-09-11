@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,10 @@ namespace OrderManagement.Backend.Helpers
 
             CreateMap<CustomerDTO, Customer>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.customerNr))
-                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.name.Split(' ', StringSplitOptions.None)))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name.Split(' ', StringSplitOptions.None)))
+                .ForMember(dest => dest.Firstname,
+                    opt => opt.MapFrom(src => src.name.Split(' ', StringSplitOptions.None).First()))
+                .ForMember(dest => dest.Name,
+                    opt => opt.MapFrom(src => src.name.Split(' ', StringSplitOptions.None).Last()))
                 .ForMember(dest => dest.Mail, opt => opt.MapFrom(src => src.email))
                 .ForMember(dest => dest.Webpage, opt => opt.MapFrom(src => src.website))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.address))

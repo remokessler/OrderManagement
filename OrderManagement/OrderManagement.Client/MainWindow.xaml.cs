@@ -363,11 +363,13 @@ namespace OrderManagement.Client
 
         private void OnExportXML(object sender, MouseButtonEventArgs e)
         {
+            new Xml<Customer>(RepositoryCollection.Instance.CustomerRepository, true);
             MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnImportXML(object sender, MouseButtonEventArgs e)
         {
+            new Xml<Customer>(RepositoryCollection.Instance.CustomerRepository, false);
             MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -379,6 +381,7 @@ namespace OrderManagement.Client
 
         private void OnImportJson(object sender, MouseButtonEventArgs e)
         {
+            new Json<Customer>(RepositoryCollection.Instance.CustomerRepository, false);
             MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
