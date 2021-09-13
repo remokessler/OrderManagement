@@ -11,6 +11,8 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using OrderManagement.Backend.Repositories;
+using OrderManagement.Backend.Serializer;
 
 namespace OrderManagement.Client
 {
@@ -220,21 +222,21 @@ namespace OrderManagement.Client
         private T UpdateOrInsert<T>(object rowItem) where T : IHasId
         {
             var item = (T)rowItem;
-            try
-            {
+            //try
+            //{
                 var repository = GetActivePage<T>().Repository;
-                if (item.Id == "0")
+                if (item.Id == null)
                     item = repository.Add(item);
                 else
                     item = repository.Update(item);
-                if (item == null || item.Id == null)
-                    MessageBox.Show("The dataset could not be updated due to missing information.", "Missing data", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //if (item == null || item.Id == null)
+            //    MessageBox.Show("The dataset could not be updated due to missing information.", "Missing data", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-            }
-            catch
-            {
-                MessageBox.Show("An error occurred while saving.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("An error occurred while saving.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
             return item;
         }
 
@@ -361,57 +363,26 @@ namespace OrderManagement.Client
 
         private void OnExportXML(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(false);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            new Xml<Customer>(RepositoryCollection.Instance.CustomerRepository, true);
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnImportXML(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(true);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            new Xml<Customer>(RepositoryCollection.Instance.CustomerRepository, false);
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnExportJson(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(false);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            new Json<Customer>(RepositoryCollection.Instance.CustomerRepository, true);
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnImportJson(object sender, MouseButtonEventArgs e)
         {
-            string path = GetFilePathForImportExport(true);
-            if (!string.IsNullOrEmpty(path)){
-                //TODO Marco
-            }
+            new Json<Customer>(RepositoryCollection.Instance.CustomerRepository, false);
+            MessageBox.Show("Done", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
-        private string GetFilePathForImportExport(bool isImport)
-        {
-            if (isImport)
-            {
-                //TODO FileAuswahl
-            }
-            else //Export
-            {
-                //using (var fbd = new FolderBrowserDialog())
-                //{
-                //    DialogResult result = fbd.ShowDialog();
-
-                //    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                //    {
-                //        return fbd.SelectedPath;
-                //    }
-                //}
-            }
-
-            return string.Empty;
-        }
-
     }
 }

@@ -15,6 +15,7 @@ namespace OrderManagement.Backend.Repositories
         {
             var toAdd = new OrderPosition()
             {
+                Id = Guid.NewGuid().ToString(),
                 Count = obj.Count,
                 OrderId = obj.OrderId,
                 Position = obj.Position,

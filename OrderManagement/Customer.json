@@ -1,0 +1,255 @@
+[
+  {
+    "customerNr": "1",
+    "name": "Alfred Manser",
+    "address": {
+      "street": "Gossauerstrasse 15",
+      "postalCode": 9200
+    },
+    "email": "a.k@test.ch",
+    "website": "www.am.ch",
+    "password": "dGVzdDEyMzQ="
+  },
+  {
+    "customerNr": "10",
+    "name": "Tobias Wirth",
+    "address": {
+      "street": "Sonnenstrasse 35",
+      "postalCode": 8280
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "11",
+    "name": "Roland Zumstein",
+    "address": {
+      "street": "Bahnhofstrasse 16",
+      "postalCode": 8555
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "12",
+    "name": "Konrad Mazenauer",
+    "address": {
+      "street": "Kurzenerchingerstrasse 5",
+      "postalCode": 8500
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "13",
+    "name": "Patrick Stadler",
+    "address": {
+      "street": "Wartstrasse 16",
+      "postalCode": 8400
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "14",
+    "name": "Natascha Luechinger",
+    "address": {
+      "street": "Kanzleistrasse 4",
+      "postalCode": 8309
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "15",
+    "name": "Stefanie Staub",
+    "address": {
+      "street": "Flughafenstrasse 25",
+      "postalCode": 8302
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "16",
+    "name": "Emanuel Steingruber",
+    "address": {
+      "street": "Oetwilerstrasse 13",
+      "postalCode": 8953
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "17",
+    "name": "Nicole Fritsche",
+    "address": {
+      "street": "Muehlegasse 32",
+      "postalCode": 4563
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "18",
+    "name": "Karin Geher",
+    "address": {
+      "street": "Altstadt 27",
+      "postalCode": 3235
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "19",
+    "name": "Ruedi Wuerth",
+    "address": {
+      "street": "Grasweg 2",
+      "postalCode": 97074
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "2",
+    "name": "Karl Meier",
+    "address": {
+      "street": "Ronis 2",
+      "postalCode": 9050
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "20",
+    "name": "Tamara Ebneter",
+    "address": {
+      "street": "August-Bebel-Strasse 108",
+      "postalCode": 33602
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "21",
+    "name": "Antonia Faessler",
+    "address": {
+      "street": "Strada Vasile Lascar 15",
+      "postalCode": 30167
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "22",
+    "name": "Alejandro Faessler",
+    "address": {
+      "street": "Chasatschas 111",
+      "postalCode": 7536
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "23",
+    "name": "Pascal Koller",
+    "address": {
+      "street": "Sonnenstrasse 35",
+      "postalCode": 8280
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "3",
+    "name": "Marco Ebneter",
+    "address": {
+      "street": "Lehnmattstrasse 21",
+      "postalCode": 9050
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "4",
+    "name": "Mike Faessler",
+    "address": {
+      "street": "Rebhofweg 10",
+      "postalCode": 9500
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "5",
+    "name": "Remo Kessler",
+    "address": {
+      "street": "Polieregasse 2",
+      "postalCode": 3400
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "6",
+    "name": "Tim Manser",
+    "address": {
+      "street": "Zelgstrasse 2",
+      "postalCode": 3715
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "7",
+    "name": "Martin Streule",
+    "address": {
+      "street": "Via Lucomagno 115",
+      "postalCode": 6710
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "8",
+    "name": "Michael Messmer",
+    "address": {
+      "street": "Chasatschas 111",
+      "postalCode": 7536
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  },
+  {
+    "customerNr": "9",
+    "name": "Berta Keiser",
+    "address": {
+      "street": "Walenseestrasse 34",
+      "postalCode": 8880
+    },
+    "email": null,
+    "website": null,
+    "password": ""
+  }
+]

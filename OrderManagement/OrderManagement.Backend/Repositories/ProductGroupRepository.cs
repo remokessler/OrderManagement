@@ -14,6 +14,7 @@ namespace OrderManagement.Backend.Repositories
         {
             var toAdd = new ProductGroup()
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = obj.Name,
                 ParentId = obj.ParentId
             };
