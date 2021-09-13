@@ -14,6 +14,7 @@ namespace OrderManagement.Backend.Repositories
         {
             var toAdd = new Order()
             {
+                Id = Guid.NewGuid().ToString(),
                 CustomerId = obj.CustomerId,
                 Date = obj.Date
             };

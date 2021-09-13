@@ -15,6 +15,7 @@ namespace OrderManagement.Backend.Repositories
         {
             var toAdd = new Customer()
             {
+                Id = Guid.NewGuid().ToString(),
                 AddressId = obj.AddressId,
                 Firstname = obj.Firstname,
                 Name = obj.Name
@@ -55,7 +56,7 @@ namespace OrderManagement.Backend.Repositories
             oldCustomer.Firstname = newObject.Firstname;
             oldCustomer.Name = newObject.Name;
             oldCustomer.AddressId = newObject.AddressId;
-            oldCustomer.Address = DbContext.Addresses.First(a => a.Id == newObject.AddressId);
+            oldCustomer.Address = DbContext.Addresses.FirstOrDefault(a => a.Id == newObject.AddressId);
             DbContext.Update(oldCustomer);
             DbContext.SaveChanges();
             return oldCustomer;

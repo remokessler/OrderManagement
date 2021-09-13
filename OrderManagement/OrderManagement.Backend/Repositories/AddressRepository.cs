@@ -14,6 +14,7 @@ namespace OrderManagement.Backend.Repositories
         {
             var toAdd = new Address()
             {
+                Id = Guid.NewGuid().ToString(),
                 City = obj.City,
                 Country = obj.Country,
                 PostCode = obj.PostCode,
